@@ -10,7 +10,7 @@ import SwiftUI
 struct ResetPasswordView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var email =  String()
-    @State private var password = String()
+    @StateObject var viewModel = ResetPasswordModelView()
     var body: some View {
         ZStack{
             Color("Dark")
@@ -25,6 +25,7 @@ struct ResetPasswordView: View {
                     .font(.system(size: 20, weight: .bold,design: .rounded))
                 Divider()
                 VStack{
+                 Divider()
                     TextField("", text: $email, prompt: Text("Email").foregroundColor(.gray))
                         .frame(height: 15)
                         .padding(20)
@@ -35,16 +36,31 @@ struct ResetPasswordView: View {
                                 .stroke(Color.purple, lineWidth: 2)
                         )
                         .padding([.leading, .trailing], 24)
-                    Divider()
-                    
-                    CustomRegisterButtom(imageName: "", text: "Sign in", color: .purple, imageWidth: 0, imageHeight: 0,action: {
-                        print("hello")
-                        presentationMode.wrappedValue.dismiss() // Dismiss the current
+                   Divider()
+                    CustomButton(text: "Sign in", color: .purple, Width: 300, Height: 50, action: {
+                        viewModel.signIn(withEmail: email)
                     })
+                    .alert(viewModel.info, isPresented: $viewModel.alert) {
+                        Button("OK", role: .cancel) {
+                            if viewModel.isSignedIn{
+                                email = ""
+                            }
+                        }
+                    }
+                   
                 }
                 Spacer()
+               PrivacypPolicyView()
             }
         }
+        .overlay(
+            HStack{
+                if viewModel.activityIndicator {
+                   ActivityIndicator(isAnimating: true)
+                    .foregroundColor(.red)
+                    .frame(width: 80)
+               }
+        })
     }
 }
 

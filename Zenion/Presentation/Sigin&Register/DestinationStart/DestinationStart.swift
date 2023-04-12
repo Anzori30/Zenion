@@ -11,33 +11,20 @@ struct DestinationStart: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.black
-                    .ignoresSafeArea()
+                Color.black.ignoresSafeArea()
                 VStack {
                     Spacer()
                     Image("boyimage")
                         .resizable()
-                        .frame(width: 220.0, height: 250.0)
+                        .frame(width: 220, height: 250)
                     Text("Sign in to Zenion")
                         .font(.system(size: 25, weight: .bold, design: .rounded))
                         .foregroundColor(.white)
                     Spacer()
                     VStack {
-                        CustomRegisterButtom(imageName: "google-icon",
-                                             text: "Continue with Google",
-                                             color: .clear,
-                                             imageWidth: 20,
-                                             imageHeight: 20) {
-                            print("hello")
-                        }
+                        CustomRegisterButton(imageName:"Ios-icon", text: "Continue with Apple", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: true){ }
                         Divider()
-                        CustomRegisterButtom(imageName: "Ios-icon",
-                                             text: "Continue with Apple",
-                                             color: .clear,
-                                             imageWidth: 20,
-                                             imageHeight: 20) {
-                            print("hello")
-                        }
+                        CustomRegisterButton(imageName:"google-icon", text:"Continue with Google", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: true){ }
                         Divider()
                         HStack {
                             Text("")
@@ -50,16 +37,10 @@ struct DestinationStart: View {
                                 .border(Color.red, width: 1)
                         }
                         Divider()
-                        NavigationLink(destination: SiginWithPasswordView()) {
-                            CustomRegisterButtom(imageName: "",
-                                                 text: "Sign in with Password",
-                                                 color: .purple,
-                                                 imageWidth: 0,
-                                                 imageHeight: 0) {
+                            CustomRegisterButton(imageName:"", text:"Sign in with Password" , color: .purple, imageWidth: 0, imageHeight:0,destination: SignInWithPasswordView(),navigate: true) {
                             }
-                        }
                         Divider()
-                        creatAccount()
+                        CreatAccount()
                     }
                     Spacer()
                 }
@@ -75,7 +56,7 @@ struct DestinationStartView_Previews: PreviewProvider {
     }
 }
 
-struct creatAccount: View {
+struct CreatAccount: View {
     var body: some View {
         HStack {
             Text("Don't have an account?")

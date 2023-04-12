@@ -11,6 +11,7 @@ struct CreatAccountView: View {
     @State private var fullName =  String()
     @State private var email =  String()
     @State private var password = String()
+    @StateObject var viewModel = RegisterModelView()
     var body: some View {
         ZStack{
             Color.black
@@ -58,13 +59,36 @@ struct CreatAccountView: View {
                         )
                         .padding([.leading, .trailing], 24)
                     Divider()
-                    CustomRegisterButtom(imageName: "", text: "Sign in", color: .purple, imageWidth: 0, imageHeight: 0, action: {
-                        print("hello")
-                    })
+                        CustomButton(text: "Sign in", color: .purple, Width: 300, Height: 50) {
+                            viewModel.registerUser(name: fullName, email: email, password: password)
+                        }
+                    .alert(viewModel.info, isPresented: $viewModel.alert) {
+                        Button("OK", role: .cancel) {
+                            if viewModel.isSignedIn{
+                                fullName = ""
+                                email = ""
+                                password = ""
+                                
+                            }
+                            viewModel.activityIndicator = false
+                        }
+                    }
+               
                 }
                 Spacer()
+                PrivacypPolicyView()
             }
+        
         }
+        .overlay(
+            HStack{
+                if viewModel.activityIndicator {
+                   ActivityIndicator(isAnimating: true)
+                    .foregroundColor(.red)
+                    .frame(width: 80)
+               }
+            })
+
     }
 }
 

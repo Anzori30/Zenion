@@ -39,6 +39,7 @@ struct userView: View {
                             .foregroundColor(.white)
                     }
                 }
+                
                 Spacer()
                 
             }

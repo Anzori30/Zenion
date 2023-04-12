@@ -15,6 +15,20 @@
 		FA4C0E2129DCE53700D035C6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4C0E2029DCE53700D035C6 /* Colors.xcassets */; };
 		FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6585E029DDB8E60057D70C /* TabBarView.swift */; };
 		FA6A7A4F29E1C38E00A549D1 /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A7A4E29E1C38E00A549D1 /* CustomListView.swift */; };
+		FA772E8629E6AF6400964048 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772E8529E6AF6400964048 /* ActivityIndicator.swift */; };
+		FA772E8829E6BF9F00964048 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA772E8729E6BF9F00964048 /* GoogleService-Info.plist */; };
+		FA772E8B29E6C04D00964048 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E8A29E6C04D00964048 /* FirebaseAnalytics */; };
+		FA772E8D29E6C04D00964048 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E8C29E6C04D00964048 /* FirebaseAuth */; };
+		FA772E8F29E6C04D00964048 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E8E29E6C04D00964048 /* FirebaseDatabase */; };
+		FA772E9129E6C04D00964048 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E9029E6C04D00964048 /* FirebaseDatabaseSwift */; };
+		FA772E9329E6C04D00964048 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E9229E6C04D00964048 /* FirebaseFirestore */; };
+		FA772E9529E6C04D00964048 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E9429E6C04D00964048 /* FirebaseFirestoreSwift */; };
+		FA772E9729E6C04D00964048 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA772E9629E6C04D00964048 /* FirebaseStorage */; };
+		FA772E9929E6C07700964048 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772E9829E6C07700964048 /* SignInViewModel.swift */; };
+		FA772E9C29E6DCE900964048 /* ResetPasswordModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772E9B29E6DCE900964048 /* ResetPasswordModelView.swift */; };
+		FA772EA029E6E2F800964048 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772E9F29E6E2F800964048 /* CustomButton.swift */; };
+		FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772EA229E6EA0800964048 /* PrivacypPolicyView.swift */; };
+		FA772EA729E6EC2200964048 /* RegisterModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772EA629E6EC2200964048 /* RegisterModelView.swift */; };
 		FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A8A8829DCAA0B00C49FCA /* ZenionApp.swift */; };
 		FA7A8A8D29DCAA0C00C49FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */; };
 		FA7A8A9029DCAA0C00C49FCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8F29DCAA0C00C49FCA /* Preview Assets.xcassets */; };
@@ -56,6 +70,13 @@
 		FA4C0E2029DCE53700D035C6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA6585E029DDB8E60057D70C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		FA6A7A4E29E1C38E00A549D1 /* CustomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListView.swift; sourceTree = "<group>"; };
+		FA772E8529E6AF6400964048 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		FA772E8729E6BF9F00964048 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA772E9829E6C07700964048 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		FA772E9B29E6DCE900964048 /* ResetPasswordModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordModelView.swift; sourceTree = "<group>"; };
+		FA772E9F29E6E2F800964048 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FA772EA229E6EA0800964048 /* PrivacypPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacypPolicyView.swift; sourceTree = "<group>"; };
+		FA772EA629E6EC2200964048 /* RegisterModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModelView.swift; sourceTree = "<group>"; };
 		FA7A8A8529DCAA0B00C49FCA /* Zenion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zenion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7A8A8829DCAA0B00C49FCA /* ZenionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenionApp.swift; sourceTree = "<group>"; };
 		FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +100,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA772E9129E6C04D00964048 /* FirebaseDatabaseSwift in Frameworks */,
+				FA772E8F29E6C04D00964048 /* FirebaseDatabase in Frameworks */,
+				FA772E8B29E6C04D00964048 /* FirebaseAnalytics in Frameworks */,
+				FA772E9329E6C04D00964048 /* FirebaseFirestore in Frameworks */,
+				FA772E9729E6C04D00964048 /* FirebaseStorage in Frameworks */,
+				FA772E8D29E6C04D00964048 /* FirebaseAuth in Frameworks */,
+				FA772E9529E6C04D00964048 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4C0E1929DCDD2B00D035C6 /* ResetPasswordView.swift */,
+				FA772E9D29E6DCF000964048 /* ModelView */,
 			);
 			path = ResetPassword;
 			sourceTree = "<group>";
@@ -127,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4C0E1E29DCE29800D035C6 /* CreatAccountView.swift */,
+				FA772EA529E6EC1000964048 /* RegisterModelView */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -143,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7AECA529DCDAEF00DC1ED8 /* CustomRegisterButtom.swift */,
+				FA772E9F29E6E2F800964048 /* CustomButton.swift */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -153,6 +184,46 @@
 				FA6A7A4E29E1C38E00A549D1 /* CustomListView.swift */,
 			);
 			path = CustomList;
+			sourceTree = "<group>";
+		};
+		FA772E8429E6AF5C00964048 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				FA772E8529E6AF6400964048 /* ActivityIndicator.swift */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		FA772E9A29E6DC8400964048 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				FA772E9829E6C07700964048 /* SignInViewModel.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		FA772E9D29E6DCF000964048 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				FA772E9B29E6DCE900964048 /* ResetPasswordModelView.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		FA772EA129E6E9FD00964048 /* privacy policy */ = {
+			isa = PBXGroup;
+			children = (
+				FA772EA229E6EA0800964048 /* PrivacypPolicyView.swift */,
+			);
+			path = "privacy policy";
+			sourceTree = "<group>";
+		};
+		FA772EA529E6EC1000964048 /* RegisterModelView */ = {
+			isa = PBXGroup;
+			children = (
+				FA772EA629E6EC2200964048 /* RegisterModelView.swift */,
+			);
+			path = RegisterModelView;
 			sourceTree = "<group>";
 		};
 		FA7A8A7C29DCAA0B00C49FCA = {
@@ -184,6 +255,7 @@
 				FA7A8AB329DCAA3800C49FCA /* Presentation */,
 				FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */,
 				FA4C0E2029DCE53700D035C6 /* Colors.xcassets */,
+				FA772E8729E6BF9F00964048 /* GoogleService-Info.plist */,
 				FA7A8A8E29DCAA0C00C49FCA /* Preview Content */,
 			);
 			path = Zenion;
@@ -244,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7AEC9D29DCC81B00DC1ED8 /* SiginWithPasswordView.swift */,
+				FA772E9A29E6DC8400964048 /* ModelView */,
 			);
 			path = SIginWithPassword;
 			sourceTree = "<group>";
@@ -251,6 +324,8 @@
 		FA7AECA429DCDADC00DC1ED8 /* CustomElement */ = {
 			isa = PBXGroup;
 			children = (
+				FA772EA129E6E9FD00964048 /* privacy policy */,
+				FA772E8429E6AF5C00964048 /* ActivityIndicator */,
 				FA6A7A4B29E1C36C00A549D1 /* CustomList */,
 				FA6A7A4A29E1C35C00A549D1 /* button */,
 			);
@@ -337,6 +412,15 @@
 			dependencies = (
 			);
 			name = Zenion;
+			packageProductDependencies = (
+				FA772E8A29E6C04D00964048 /* FirebaseAnalytics */,
+				FA772E8C29E6C04D00964048 /* FirebaseAuth */,
+				FA772E8E29E6C04D00964048 /* FirebaseDatabase */,
+				FA772E9029E6C04D00964048 /* FirebaseDatabaseSwift */,
+				FA772E9229E6C04D00964048 /* FirebaseFirestore */,
+				FA772E9429E6C04D00964048 /* FirebaseFirestoreSwift */,
+				FA772E9629E6C04D00964048 /* FirebaseStorage */,
+			);
 			productName = Zenion;
 			productReference = FA7A8A8529DCAA0B00C49FCA /* Zenion.app */;
 			productType = "com.apple.product-type.application";
@@ -409,6 +493,9 @@
 				Base,
 			);
 			mainGroup = FA7A8A7C29DCAA0B00C49FCA;
+			packageReferences = (
+				FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = FA7A8A8629DCAA0B00C49FCA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -426,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4C0E2129DCE53700D035C6 /* Colors.xcassets in Resources */,
+				FA772E8829E6BF9F00964048 /* GoogleService-Info.plist in Resources */,
 				FA7A8A9029DCAA0C00C49FCA /* Preview Assets.xcassets in Resources */,
 				FA7A8A8D29DCAA0C00C49FCA /* Assets.xcassets in Resources */,
 			);
@@ -453,9 +541,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7AECA629DCDAEF00DC1ED8 /* CustomRegisterButtom.swift in Sources */,
+				FA772EA029E6E2F800964048 /* CustomButton.swift in Sources */,
 				FAD29A5E29DDB1F00009F917 /* AllMovieView.swift in Sources */,
 				FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */,
+				FA772EA729E6EC2200964048 /* RegisterModelView.swift in Sources */,
 				FAD29A6229DDB20C0009F917 /* userView.swift in Sources */,
+				FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */,
+				FA772E9929E6C07700964048 /* SignInViewModel.swift in Sources */,
 				FAD29A5A29DDB1DB0009F917 /* HomeView.swift in Sources */,
 				FA6A7A4F29E1C38E00A549D1 /* CustomListView.swift in Sources */,
 				FA7AEC9E29DCC81B00DC1ED8 /* SiginWithPasswordView.swift in Sources */,
@@ -464,8 +556,10 @@
 				FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */,
 				FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */,
 				FAD29A6029DDB1FF0009F917 /* FavoriteView.swift in Sources */,
+				FA772E8629E6AF6400964048 /* ActivityIndicator.swift in Sources */,
 				FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */,
 				FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */,
+				FA772E9C29E6DCE900964048 /* ResetPasswordModelView.swift in Sources */,
 				FA487CE229E4706200FC332C /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,6 +885,55 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA772E8A29E6C04D00964048 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FA772E8C29E6C04D00964048 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FA772E8E29E6C04D00964048 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FA772E9029E6C04D00964048 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		FA772E9229E6C04D00964048 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FA772E9429E6C04D00964048 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		FA772E9629E6C04D00964048 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA772E8929E6C04D00964048 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA7A8A7D29DCAA0B00C49FCA /* Project object */;
 }
