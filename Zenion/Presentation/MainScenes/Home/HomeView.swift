@@ -6,24 +6,39 @@
 //
 
 import SwiftUI
-
+import Kingfisher
 struct HomeView: View {
+    @StateObject var viewModel = HomeModelView()
+    
+
     var body: some View {
-        Color("Dark")
-            .ignoresSafeArea()
-            .overlay(
-                ScrollView {
-                    VStack(spacing: 50) {
-                        imageTableView()
-                        Contents(headerText: "Continue viewing",width: 270,height: 170)
-                        Contents(headerText: "Top Movie",width: 200,height: 250)
-                        Contents(headerText: "Top Movie",width: 200,height: 250)
-                        Contents(headerText: "premiere",width: 200,height: 250)
+        ZStack {
+            Color("Dark")
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(spacing: 50) {
+                    if viewModel.showMovies {
+                        imageTableView(movies: viewModel.Homemovies, height:Int(UIScreen.main.bounds.width) )
+                            Contents(headerText: "Continue viewing", movies:viewModel.Homemovies,width: 280,height: 260)
+                            Contents(headerText: "Top Movie", movies: viewModel.Homemovies,width: 200,height: 300)
+                            Contents(headerText: "Top Movie", movies: viewModel.Homemovies,width: 200,height: 300)
+                            Contents(headerText: "premiere", movies: viewModel.Homemovies,width: 200,height: 300)
                         Spacer()
                     }
-                })
+                }
+            }
+        }  .overlay(
+            HStack{
+                if viewModel.ActivityIndicator {
+                   ActivityIndicator(isAnimating: true)
+                    .foregroundColor(.red)
+                    .frame(width: 80)
+               }
+        })
     }
 }
+
+
 
 
 struct HomeView_Previews: PreviewProvider {
@@ -32,24 +47,26 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 struct imageTableView: View {
+    var movies: [movie]
+    let height:Int
     var body: some View {
                 TabView {
-                    Image("test")
-                    Image("test")
-                    Image("test")
-                    Image("test")
+                    ForEach(movies, id: \.self) { movie in
+                        KFImage(URL(string: movie.photo))
+                         .resizable()
                     }
+                }
+                .frame(height: CGFloat(Double(height) / 1.2 ))
                 .cornerRadius(20)
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .padding([.leading,.trailing])
-                .frame(height: 320)
     }
 }
 
 struct Contents: View {
     let headerText:String
-    let images = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10"]
+    var movies: [movie]
     let width:Int
     let height:Int
     var body: some View {
@@ -69,18 +86,27 @@ struct Contents: View {
             }
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(images, id: \.self) { imageName in
+                    ForEach(movies, id: \.self) { movie in
+                        Button {
+                            //action
+                            print(movie.actors)
+                        }
+                      label: {
                         VStack{
-                            Image("test")
+                            KFImage(URL(string: movie.photo))
                                    .resizable()
-                                   .frame(width: CGFloat(width), height: CGFloat(height))
+                                   .frame(width: CGFloat(width), height: CGFloat(height - 50))
                                    .cornerRadius(30)
-                               Text("Continue viewogfh")
+                            Text(movie.name)
                                    .font(.system(size: 20, weight: .bold, design: .rounded))
                                    .foregroundColor(.white)
+                                   .frame(height:50)
                         }
-                        .frame(width: CGFloat(width))
+                        .frame(width: CGFloat(width),height: CGFloat(height + 20))
+                     }
+                        
                     }
+                    
                 }
             }
             .scrollIndicators(.hidden)

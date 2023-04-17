@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-
+import Swift
+import Kingfisher
 struct CustomListView: View {
     let headerText:String
-    let images = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image8", "image9", "image10"]
+    var movies: [movie]
     let width:Int
     let height:Int
     var body: some View {
@@ -29,28 +30,27 @@ struct CustomListView: View {
             }
       
             List {
-                ForEach(images, id: \.self) { imageName in
+                ForEach(movies, id: \.self) { movie in
                   
                     HStack{
-                        Image("test")
-                               .resizable()
-                               .frame(width: CGFloat(width / 2), height: CGFloat(height))
-                               .cornerRadius(30)
+                        KFImage(URL(string: movie.photo))
+                           .resizable()
+                           .frame(width: CGFloat(width / 2), height: CGFloat(height))
+                           .cornerRadius(30)
                         VStack{
-                           
-                            Text("Name")
+                            Text(movie.name)
                                 .font(.system(size: 15, weight: .bold, design: .rounded))
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("Year")
+                            Text("\(movie.years)")
                                 .font(.system(size: 15, weight: .bold, design: .rounded))
                                 .foregroundColor(.gray)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("ganre")
+                            Text("movie.genre")
                                 .font(.system(size: 15, weight: .bold, design: .rounded))
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                            Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularis")
+                            Text(movie.description)
                                 .font(.system(size: 15))
                                 .foregroundColor(.red)
                                 .frame(maxWidth: .infinity, alignment: .leading)

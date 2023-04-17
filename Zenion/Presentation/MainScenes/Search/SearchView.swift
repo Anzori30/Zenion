@@ -23,7 +23,7 @@ struct SearchView: View {
                     .ignoresSafeArea()
                     .navigationTitle("Search")
                     .searchable(text: $searchText)
-                CustomListView(headerText: "Top", width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                CustomListView(headerText: "Top", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
             }
             //zs end
         }

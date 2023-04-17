@@ -41,7 +41,6 @@ class RegisterModelView: ObservableObject {
                     self.alert = true
                     self.isSignedIn = true
                     self.info =  "User registered successfully!"
-                    print("")
                 }
             }
         }

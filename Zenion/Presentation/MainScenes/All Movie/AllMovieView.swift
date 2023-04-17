@@ -13,7 +13,7 @@ struct AllMovieView: View {
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-                CustomListView(headerText: "All", width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                CustomListView(headerText: "All", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
             }
             //zs end
  

@@ -18,7 +18,6 @@ struct LaunchScreen: View {
                     .frame(width: geo.size.width, height: geo.size.height)
             }
             .ignoresSafeArea()
-            
             SlowTextWithImage(text: "Z e n i o n", image: Image("logo"), imageIndex: 1)
         }
         .onAppear {

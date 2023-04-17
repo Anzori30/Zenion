@@ -12,7 +12,7 @@ struct FavoriteView: View {
         ZStack{
             Color("Dark")
                 .ignoresSafeArea()
-            CustomListView(headerText: "Favorite", width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+            CustomListView(headerText: "Favorite", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
         }
         //zs end
     }
