@@ -6,28 +6,51 @@
 //
 
 import SwiftUI
-
 struct SearchView: View {
-    let colorDark = UIColor(named: "Dark")
+    @ObservedObject var viewModel = searchViewModel()
+    @State private var searchText = ""
+    var filterMoview = [movie]()
     init() {
-        UINavigationBar.appearance().backgroundColor = colorDark
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
-    @State private var searchText = ""
     var body: some View {
-        NavigationStack {
+        NavigationView {
             ZStack{
-                Color(uiColor: colorDark!)
+                Color("Dark")
                     .ignoresSafeArea()
                     .navigationTitle("Search")
                     .searchable(text: $searchText)
-                CustomListView(headerText: "Top", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                if viewModel.showMovies {
+                    if searchText.isEmpty {
+                        CustomListView(headerText: "All", movies: viewModel.Searchmovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    } else {
+                        CustomListView(headerText: "Searched", movies: viewModel.Searchmovies.filter { movie in
+                            movie.name.localizedCaseInsensitiveContains(searchText) ||
+                            movie.location.localizedCaseInsensitiveContains(searchText) ||
+                            movie.genre.contains(where: { genre in genre.localizedCaseInsensitiveContains(searchText) }) ||
+                            movie.actors.contains(where: { actor in actor.localizedCaseInsensitiveContains(searchText) })
+                        }, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    }
+                }
+                else {
+                    Text("No movies found")
+                      .foregroundColor(Color("Light"))
+                }
+                
             }
-            //zs end
+            
         }
-        //navigation end
+        .navigationViewStyle(StackNavigationViewStyle())
+        .overlay(
+            HStack{
+                if viewModel.ActivityIndicator {
+                   ActivityIndicator(isAnimating: true)
+                    .foregroundColor(.red)
+                    .frame(width: 80)
+               }
+        })
     }
 }
 
@@ -36,4 +59,3 @@ struct SearchView_Previews: PreviewProvider {
         SearchView()
     }
 }
-

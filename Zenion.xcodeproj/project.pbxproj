@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0296B129EEE8A2003D3F2E /* AllModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B029EEE8A2003D3F2E /* AllModelView.swift */; };
+		FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */; };
+		FA0296B629EEF714003D3F2E /* searchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B529EEF714003D3F2E /* searchViewModel.swift */; };
 		FA21E68C29EDD34D0081285B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA21E68B29EDD34D0081285B /* Kingfisher */; };
 		FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */; };
 		FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */; };
@@ -65,6 +68,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA0296B029EEE8A2003D3F2E /* AllModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModelView.swift; sourceTree = "<group>"; };
+		FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
+		FA0296B529EEF714003D3F2E /* searchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewModel.swift; sourceTree = "<group>"; };
 		FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseInfo.swift; sourceTree = "<group>"; };
 		FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModelView.swift; sourceTree = "<group>"; };
 		FA487CE129E4706200FC332C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -133,6 +139,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0296AF29EEE891003D3F2E /* allModelView */ = {
+			isa = PBXGroup;
+			children = (
+				FA0296B029EEE8A2003D3F2E /* AllModelView.swift */,
+			);
+			path = allModelView;
+			sourceTree = "<group>";
+		};
+		FA0296B429EEF597003D3F2E /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		FA0296B729EF019B003D3F2E /* SarchViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA0296B529EEF714003D3F2E /* searchViewModel.swift */,
+			);
+			path = SarchViewModel;
+			sourceTree = "<group>";
+		};
 		FA3E479B29EABE5A00D1A93C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6585E029DDB8E60057D70C /* TabBarView.swift */,
+				FA0296B429EEF597003D3F2E /* viewmodel */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -392,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD29A5B29DDB1E20009F917 /* SearchView.swift */,
+				FA0296B729EF019B003D3F2E /* SarchViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -400,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD29A5D29DDB1F00009F917 /* AllMovieView.swift */,
+				FA0296AF29EEE891003D3F2E /* allModelView */,
 			);
 			path = "All Movie";
 			sourceTree = "<group>";
@@ -576,14 +609,17 @@
 				FA772E9929E6C07700964048 /* SignInViewModel.swift in Sources */,
 				FAD29A5A29DDB1DB0009F917 /* HomeView.swift in Sources */,
 				FA6A7A4F29E1C38E00A549D1 /* CustomListView.swift in Sources */,
+				FA0296B129EEE8A2003D3F2E /* AllModelView.swift in Sources */,
 				FA7AEC9E29DCC81B00DC1ED8 /* SiginWithPasswordView.swift in Sources */,
 				FA4C0E1A29DCDD2B00D035C6 /* ResetPasswordView.swift in Sources */,
 				FAD29A5C29DDB1E20009F917 /* SearchView.swift in Sources */,
+				FA0296B629EEF714003D3F2E /* searchViewModel.swift in Sources */,
 				FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */,
 				FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */,
 				FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */,
 				FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */,
 				FAD29A6029DDB1FF0009F917 /* FavoriteView.swift in Sources */,
+				FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */,
 				FA772E8629E6AF6400964048 /* ActivityIndicator.swift in Sources */,
 				FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */,
 				FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */,

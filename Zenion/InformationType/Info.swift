@@ -15,19 +15,20 @@ struct UserPage {
 
 
 
-struct movie: Hashable {
+struct movie: Hashable, Equatable {
     let name: String
-    let photo:  String
+    let photo: String
     let location: String
     let description: String
     let genre: [String]
-    let director:String
-    let video:[String]
+    let director: String
+    let video: [String]
     let trailer: String
-    let star:Double
-    let actors:[String]
-    var favorite:Bool
-    var years:Int
+    let star: Double
+    let actors: [String]
+    var favorite: Bool
+    var years: Int
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(photo)
@@ -42,4 +43,7 @@ struct movie: Hashable {
         hasher.combine(years)
         hasher.combine(trailer)
     }
+    
+  
 }
+

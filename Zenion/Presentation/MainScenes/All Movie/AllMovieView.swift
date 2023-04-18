@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct AllMovieView: View {
-    
+    @StateObject var viewModel = AllModelView()
     var body: some View {
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-                CustomListView(headerText: "All", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                CustomListView(headerText: "All", movies: viewModel.Homemovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
             }
             //zs end
- 
+            .overlay(
+               HStack{
+                   if viewModel.ActivityIndicator {
+                      ActivityIndicator(isAnimating: true)
+                       .foregroundColor(.red)
+                       .frame(width: 80)
+                  }
+           })
     }
 }
 

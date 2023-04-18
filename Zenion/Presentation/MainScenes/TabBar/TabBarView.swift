@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct TabBarView: View {
- 
+    @StateObject var viewModel = TabViewModel()
     var body: some View {
         TabView {
             HomeView()

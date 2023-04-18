@@ -19,7 +19,7 @@ struct HomeView: View {
                 VStack(spacing: 50) {
                     if viewModel.showMovies {
                         imageTableView(movies: viewModel.Homemovies, height:Int(UIScreen.main.bounds.width) )
-                            Contents(headerText: "Continue viewing", movies:viewModel.Homemovies,width: 280,height: 260)
+                            Contents(headerText: "Continue viewing", movies:viewModel.Homemovies,width: 250,height: 260)
                             Contents(headerText: "Top Movie", movies: viewModel.Homemovies,width: 200,height: 300)
                             Contents(headerText: "Top Movie", movies: viewModel.Homemovies,width: 200,height: 300)
                             Contents(headerText: "premiere", movies: viewModel.Homemovies,width: 200,height: 300)
