@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct LaunchScreen: View {
-    @State private var destinationStart = false
-    
     var body: some View {
         ZStack{
             GeometryReader { geo in
@@ -20,20 +18,9 @@ struct LaunchScreen: View {
             .ignoresSafeArea()
             SlowTextWithImage(text: "Z e n i o n", image: Image("logo"), imageIndex: 1)
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                withAnimation {
-                    destinationStart = true
-                }
-            }
-        }
-        .fullScreenCover(isPresented: $destinationStart, content: {
-            DestinationStart()
-        })
+  
     }
 }
-
-
 struct LaunchScreen_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreen()
@@ -64,7 +51,7 @@ struct SlowTextWithImage: View {
                             timer.invalidate()
                         }
                     }
-                    timer.fire()
+                timer.fire()
             }
         }
     }

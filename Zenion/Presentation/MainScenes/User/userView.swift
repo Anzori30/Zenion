@@ -9,11 +9,12 @@ import SwiftUI
 
 
 struct userView: View {
+    @StateObject var viewModel = UserViewModel()
     var body: some View {
-        ZStack{
+        ZStack {
             Color("Dark")
-            .ignoresSafeArea()
-            VStack{
+                .ignoresSafeArea()
+            VStack {
                 Spacer()
                 ProfilePhoto()
                 Spacer()
@@ -25,25 +26,32 @@ struct userView: View {
                                     UserPage(destination: AnyView(FavoriteView()), name: "Offers"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Promocodes"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Support"),
-
                                 ])
-               Spacer()
-                NavigationLink(destination: FavoriteView()){
-                    HStack{
+                Spacer()
+                Button(action: {
+                    viewModel.logOut()
+                },
+                label: {
+                    HStack {
                         Image(systemName: "rectangle.portrait.and.arrow.forward")
                             .resizable()
-                            .frame(width: 20,height: 20)
+                            .frame(width: 20, height: 20)
                             .foregroundColor(.white)
                         Text("Log out")
                             .font(.system(size: 18, weight: .bold, design: .rounded))
                             .foregroundColor(.white)
                     }
-                }
-                
+                })
                 Spacer()
-                
             }
-        }
+        } .overlay(
+            HStack{
+                if viewModel.ActivityIndicator {
+                    Zenion.ActivityIndicator(isAnimating: true)
+                        .foregroundColor(.red)
+                        .frame(width: 80)
+            }
+        })
     }
 }
 
@@ -52,6 +60,7 @@ struct userView_Previews: PreviewProvider {
         userView()
     }
 }
+
 
 fileprivate struct ProfilePhoto: View {
     var body: some View {

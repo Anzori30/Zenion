@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DestinationStart: View {
+struct DestinationStart: View{
     var body: some View {
         NavigationView {
             ZStack {

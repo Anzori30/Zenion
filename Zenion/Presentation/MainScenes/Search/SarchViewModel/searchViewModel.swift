@@ -12,7 +12,6 @@ class searchViewModel: ObservableObject {
     @Published var showMovies = false
     @Published var ActivityIndicator = true
 
-    
     init() {
         FirebaseDatabaseInfo().startHTTP()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)

@@ -12,6 +12,9 @@ class SignInViewModel: ObservableObject {
     @Published var alert = false
     @Published var errors = ""
     @Published var ActivityIndicator = false
+    var valueToSave = Bool()
+    let defaults = UserDefaults.standard
+    
     func signIn(withEmail email: String, password: String) {
         self.ActivityIndicator = true
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
@@ -28,6 +31,8 @@ class SignInViewModel: ObservableObject {
                     self.isSignedIn = true
                     self.ActivityIndicator = false
                 }
+                self.valueToSave = true
+                self.defaults.set(self.valueToSave, forKey: "isLogined")
                 print("Sign in successful")
             }
         }

@@ -11,6 +11,7 @@
 		FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */; };
 		FA0296B629EEF714003D3F2E /* searchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B529EEF714003D3F2E /* searchViewModel.swift */; };
 		FA21E68C29EDD34D0081285B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA21E68B29EDD34D0081285B /* Kingfisher */; };
+		FA222E1D29F03CC8002BC088 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA222E1C29F03CC8002BC088 /* UserViewModel.swift */; };
 		FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */; };
 		FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */; };
 		FA487CE229E4706200FC332C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE129E4706200FC332C /* Info.swift */; };
@@ -35,6 +36,7 @@
 		FA772EA029E6E2F800964048 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772E9F29E6E2F800964048 /* CustomButton.swift */; };
 		FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772EA229E6EA0800964048 /* PrivacypPolicyView.swift */; };
 		FA772EA729E6EC2200964048 /* RegisterModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA772EA629E6EC2200964048 /* RegisterModelView.swift */; };
+		FA77B8E329F0109000B8317C /* PhotoUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77B8E229F0109000B8317C /* PhotoUploader.swift */; };
 		FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A8A8829DCAA0B00C49FCA /* ZenionApp.swift */; };
 		FA7A8A8D29DCAA0C00C49FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */; };
 		FA7A8A9029DCAA0C00C49FCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8F29DCAA0C00C49FCA /* Preview Assets.xcassets */; };
@@ -71,6 +73,7 @@
 		FA0296B029EEE8A2003D3F2E /* AllModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModelView.swift; sourceTree = "<group>"; };
 		FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
 		FA0296B529EEF714003D3F2E /* searchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewModel.swift; sourceTree = "<group>"; };
+		FA222E1C29F03CC8002BC088 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseInfo.swift; sourceTree = "<group>"; };
 		FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModelView.swift; sourceTree = "<group>"; };
 		FA487CE129E4706200FC332C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		FA772E9F29E6E2F800964048 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FA772EA229E6EA0800964048 /* PrivacypPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacypPolicyView.swift; sourceTree = "<group>"; };
 		FA772EA629E6EC2200964048 /* RegisterModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModelView.swift; sourceTree = "<group>"; };
+		FA77B8E229F0109000B8317C /* PhotoUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploader.swift; sourceTree = "<group>"; };
 		FA7A8A8529DCAA0B00C49FCA /* Zenion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zenion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7A8A8829DCAA0B00C49FCA /* ZenionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenionApp.swift; sourceTree = "<group>"; };
 		FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,10 +167,19 @@
 			path = SarchViewModel;
 			sourceTree = "<group>";
 		};
+		FA222E1B29F03CB6002BC088 /* userviewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA222E1C29F03CC8002BC088 /* UserViewModel.swift */,
+			);
+			path = userviewModel;
+			sourceTree = "<group>";
+		};
 		FA3E479B29EABE5A00D1A93C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */,
+				FA77B8E429F010CF00B8317C /* MovieImort */,
+				FA77B8E129F0108300B8317C /* PhotoUpload */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -277,6 +290,22 @@
 				FA772EA629E6EC2200964048 /* RegisterModelView.swift */,
 			);
 			path = RegisterModelView;
+			sourceTree = "<group>";
+		};
+		FA77B8E129F0108300B8317C /* PhotoUpload */ = {
+			isa = PBXGroup;
+			children = (
+				FA77B8E229F0109000B8317C /* PhotoUploader.swift */,
+			);
+			path = PhotoUpload;
+			sourceTree = "<group>";
+		};
+		FA77B8E429F010CF00B8317C /* MovieImort */ = {
+			isa = PBXGroup;
+			children = (
+				FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */,
+			);
+			path = MovieImort;
 			sourceTree = "<group>";
 		};
 		FA7A8A7C29DCAA0B00C49FCA = {
@@ -449,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD29A6129DDB20C0009F917 /* userView.swift */,
+				FA222E1B29F03CB6002BC088 /* userviewModel */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -604,6 +634,7 @@
 				FAD29A5E29DDB1F00009F917 /* AllMovieView.swift in Sources */,
 				FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */,
 				FA772EA729E6EC2200964048 /* RegisterModelView.swift in Sources */,
+				FA222E1D29F03CC8002BC088 /* UserViewModel.swift in Sources */,
 				FAD29A6229DDB20C0009F917 /* userView.swift in Sources */,
 				FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */,
 				FA772E9929E6C07700964048 /* SignInViewModel.swift in Sources */,
@@ -614,6 +645,7 @@
 				FA4C0E1A29DCDD2B00D035C6 /* ResetPasswordView.swift in Sources */,
 				FAD29A5C29DDB1E20009F917 /* SearchView.swift in Sources */,
 				FA0296B629EEF714003D3F2E /* searchViewModel.swift in Sources */,
+				FA77B8E329F0109000B8317C /* PhotoUploader.swift in Sources */,
 				FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */,
 				FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */,
 				FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */,

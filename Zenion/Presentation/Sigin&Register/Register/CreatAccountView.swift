@@ -11,7 +11,7 @@ struct CreatAccountView: View {
     @State private var fullName =  String()
     @State private var email =  String()
     @State private var password = String()
-    @StateObject var viewModel = RegisterModelView()
+    @StateObject var viewModel = RegisterViewModel()
     var body: some View {
         ZStack{
             Color.black
