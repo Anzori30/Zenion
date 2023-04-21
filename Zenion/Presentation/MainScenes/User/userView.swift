@@ -16,14 +16,14 @@ struct userView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                ProfilePhoto()
+                ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail)
                 Spacer()
                 ScrollViewList(info:
                                 [
                                     UserPage(destination: AnyView(FavoriteView()), name: "Profile"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Subscription"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Setting"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Offers"),
+                                    UserPage(destination: AnyView(FavoriteView()), name: "Downloads"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Promocodes"),
                                     UserPage(destination: AnyView(FavoriteView()), name: "Support"),
                                 ])
@@ -44,6 +44,7 @@ struct userView: View {
                 })
                 Spacer()
             }
+            .padding([.leading,.trailing],10)
         } .overlay(
             HStack{
                 if viewModel.ActivityIndicator {
@@ -63,6 +64,8 @@ struct userView_Previews: PreviewProvider {
 
 
 fileprivate struct ProfilePhoto: View {
+    var name:String
+    var email:String
     var body: some View {
         NavigationLink( destination: FavoriteView()){
             VStack{

@@ -33,6 +33,12 @@ class SignInViewModel: ObservableObject {
                 }
                 self.valueToSave = true
                 self.defaults.set(self.valueToSave, forKey: "isLogined")
+                if let user = authResult?.user {
+                   let displayName = user.displayName ?? "Unknown"
+                   print(displayName)
+                    self.defaults.set(displayName, forKey: "Name")
+                    self.defaults.set(email, forKey: "Email")
+                 }
                 print("Sign in successful")
             }
         }

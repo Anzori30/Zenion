@@ -32,6 +32,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
      return true
     }
 }
+
+
 struct MyView: View {
     
     @State private var one = 0

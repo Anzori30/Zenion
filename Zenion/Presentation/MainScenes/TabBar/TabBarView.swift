@@ -40,7 +40,7 @@ struct TabBarView: View {
             .onAppear() {
                 UITabBar.appearance().backgroundColor = UIColor(named: "Dark")
                 UITabBar.appearance().unselectedItemTintColor = UIColor.gray
-        }
+          }
     }
 }
 

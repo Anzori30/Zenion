@@ -33,6 +33,7 @@ struct CustomListView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(movies, id: \.self) { movie in
+                        NavigationLink(destination: DetalPageView(movies: movie) ){
                         HStack {
                             KFImage(URL(string: movie.photo))
                                 .resizable()
@@ -66,11 +67,14 @@ struct CustomListView: View {
                             }
                             .frame(height: CGFloat(height))
                             .padding([.leading,],0)
+                          }
                         }
                         .listRowBackground(Color.clear)
                     }
                 }
+                .padding([.bottom],150)
             }
+            
             .padding([.bottom,],-100)
             .padding([.leading,.trailing,],7)
         }
