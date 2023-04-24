@@ -10,6 +10,8 @@
 		FA0296B129EEE8A2003D3F2E /* AllModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B029EEE8A2003D3F2E /* AllModelView.swift */; };
 		FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */; };
 		FA0296B629EEF714003D3F2E /* searchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0296B529EEF714003D3F2E /* searchViewModel.swift */; };
+		FA0EDC8C29F5852C0041AF89 /* MovieSerieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EDC8B29F5852C0041AF89 /* MovieSerieList.swift */; };
+		FA0EDC8F29F5B1980041AF89 /* VideoPLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0EDC8E29F5B1980041AF89 /* VideoPLayerView.swift */; };
 		FA21E68C29EDD34D0081285B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA21E68B29EDD34D0081285B /* Kingfisher */; };
 		FA222E1D29F03CC8002BC088 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA222E1C29F03CC8002BC088 /* UserViewModel.swift */; };
 		FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */; };
@@ -79,6 +81,8 @@
 		FA0296B029EEE8A2003D3F2E /* AllModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllModelView.swift; sourceTree = "<group>"; };
 		FA0296B229EEF3E0003D3F2E /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
 		FA0296B529EEF714003D3F2E /* searchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewModel.swift; sourceTree = "<group>"; };
+		FA0EDC8B29F5852C0041AF89 /* MovieSerieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSerieList.swift; sourceTree = "<group>"; };
+		FA0EDC8E29F5B1980041AF89 /* VideoPLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPLayerView.swift; sourceTree = "<group>"; };
 		FA222E1C29F03CC8002BC088 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseInfo.swift; sourceTree = "<group>"; };
 		FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModelView.swift; sourceTree = "<group>"; };
@@ -179,6 +183,22 @@
 			path = SarchViewModel;
 			sourceTree = "<group>";
 		};
+		FA0EDC8A29F585170041AF89 /* SeriesList */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EDC8B29F5852C0041AF89 /* MovieSerieList.swift */,
+			);
+			path = SeriesList;
+			sourceTree = "<group>";
+		};
+		FA0EDC8D29F5B17E0041AF89 /* VideoPLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FA0EDC8E29F5B1980041AF89 /* VideoPLayerView.swift */,
+			);
+			path = VideoPLayer;
+			sourceTree = "<group>";
+		};
 		FA222E1B29F03CB6002BC088 /* userviewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +261,7 @@
 		FA5EC59029F2FADB00751923 /* ChildPages */ = {
 			isa = PBXGroup;
 			children = (
+				FA0EDC8D29F5B17E0041AF89 /* VideoPLayer */,
 				FA5EC59129F2FAEA00751923 /* DetalPage */,
 			);
 			path = ChildPages;
@@ -444,6 +465,7 @@
 		FA7AECA429DCDADC00DC1ED8 /* CustomElement */ = {
 			isa = PBXGroup;
 			children = (
+				FA0EDC8A29F585170041AF89 /* SeriesList */,
 				FA8B298D29F3367B00A12CE7 /* HomeList */,
 				FA5EC59629F30DB100751923 /* ForDetalPage */,
 				FAD1294C29F31C5C003706AE /* YoutubePlayer */,
@@ -699,6 +721,7 @@
 				FAD29A6229DDB20C0009F917 /* userView.swift in Sources */,
 				FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */,
 				FA772E9929E6C07700964048 /* SignInViewModel.swift in Sources */,
+				FA0EDC8C29F5852C0041AF89 /* MovieSerieList.swift in Sources */,
 				FA5EC59929F30DCF00751923 /* DescriptionView.swift in Sources */,
 				FAD29A5A29DDB1DB0009F917 /* HomeView.swift in Sources */,
 				FA6A7A4F29E1C38E00A549D1 /* CustomListView.swift in Sources */,
@@ -720,6 +743,7 @@
 				FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */,
 				FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */,
 				FA772E9C29E6DCE900964048 /* ResetPasswordModelView.swift in Sources */,
+				FA0EDC8F29F5B1980041AF89 /* VideoPLayerView.swift in Sources */,
 				FA487CE229E4706200FC332C /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,8 +909,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -914,8 +937,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

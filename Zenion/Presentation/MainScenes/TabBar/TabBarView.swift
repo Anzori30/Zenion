@@ -37,7 +37,9 @@ struct TabBarView: View {
             .navigationBarBackButtonHidden()
             .accentColor(Color.pink)
             .tint(.white)
+     
             .onAppear() {
+//                UITabBar.appearance().isHidden = viewModel.tabTurn
                 UITabBar.appearance().backgroundColor = UIColor(named: "Dark")
                 UITabBar.appearance().unselectedItemTintColor = UIColor.gray
           }

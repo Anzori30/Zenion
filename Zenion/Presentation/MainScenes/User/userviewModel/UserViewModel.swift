@@ -10,8 +10,8 @@ import SwiftUI
 class UserViewModel:ObservableObject{
  @Published var ActivityIndicator = false
     var valueToSave = Bool()
-    let userName = UserDefaults.standard.string(forKey: "userName") ?? "Unknown"
-    let userEmail = UserDefaults.standard.string(forKey: "userEmail") ?? "Unknown"
+    let userName = UserDefaults.standard.string(forKey: "Name") ?? "Unknown"
+    let userEmail = UserDefaults.standard.string(forKey: "Email") ?? "Unknown"
     let defaults = UserDefaults.standard
    
     func logOut(){

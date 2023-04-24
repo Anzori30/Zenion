@@ -73,10 +73,10 @@ fileprivate struct ProfilePhoto: View {
                     .resizable()
                     .frame(width: 130,height: 130)
                     .cornerRadius(100)
-                Text("anzori qiziyelashvili")
+                Text(name)
                     .font(.system(size: 17, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
-                Text("anzoriqiziyelashvili11@gmail.com")
+                Text(email)
                     .font(.system(size: 13, weight: .bold, design: .rounded))
                     .foregroundColor(.gray)
             }

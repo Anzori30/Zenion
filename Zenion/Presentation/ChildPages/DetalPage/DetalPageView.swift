@@ -38,22 +38,21 @@ struct DetalPageView: View {
         }
     }
 
-
 struct DetalPageView_Previews: PreviewProvider {
     static var previews: some View {
-        DetalPageView(movies: movie(name: "", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPCXISA7AWonO3J24GKCgtJ9e4OTuaJHSBM7rcN3j28GfR6eJAJTe1Gi_AlJpG6wuFnCs&usqp=CAU", location: "", description: "", genre: [], director: "", video: [], trailer: "", star: 0.0, actors: [], favorite: true, years: 0))
+        DetalPageView(movies: movie(name: "", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPCXISA7AWonO3J24GKCgtJ9e4OTuaJHSBM7rcN3j28GfR6eJAJTe1Gi_AlJpG6wuFnCs&usqp=CAU", location: "sdffsafsf", description: "sdsfdfsf", genre: ["fdsfsf","sdasd"], director: "dsadfsdf", video: ["dsdsdsaddasd","SDsafdsfsdfs","dasdd"], trailer: "", star: 0.0, actors: [], favorite: true, years: 0))
     }
 }
 
 
 
-/// Mark menu
 
+/// Mark menu
 fileprivate struct menu: View {
     var width:CGFloat
     var height:CGFloat
     var movies: movie
-    
+    @State private var hiideSeries = true
     var body: some View {
         ZStack{
             KFImage(URL(string: movies.photo))
@@ -63,9 +62,8 @@ fileprivate struct menu: View {
                           gradient: Gradient(colors: [Color.clear, Color("Dark")]),
                           startPoint: .center,
                           endPoint: .bottom
-                      )
+                )
         }
-          
         VStack(alignment: .leading, spacing: 10) {
             Text(movies.name)
                 .font(.system(size: 25, weight: .bold, design: .rounded))
@@ -88,12 +86,21 @@ fileprivate struct menu: View {
                 .foregroundColor(Color("textColor"))
             HStack{
                 Button {
-                   ///
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        guard hiideSeries else{
+                            hiideSeries = true
+                            return
+                        }
+                     hiideSeries = false
+                    }
                 } label: {
+                 
                     Text("Watch")
                         .font(.system(size: 15, weight: .bold, design: .rounded))
-                        .foregroundColor(.white)
+                    .foregroundColor(.white)
                 }
+                .opacity(movies.video.isEmpty ? 0.5 : 1.0)
+                .disabled(movies.video.isEmpty)
                 .frame(width: 160,height: 40)
                 .background(.purple)
                 .cornerRadius(200)
@@ -101,6 +108,10 @@ fileprivate struct menu: View {
                 icon(imageName: "arrow.down.to.line", spacer: false, height: 25)
             }
             
+            if !hiideSeries {
+                let movieVideo = MovieVideo(name: movies.name, photo: movies.photo, video: movies.video)
+                MovieSerieList(headerText: "Series", movies: movieVideo , width: width/3, height: height/4)
+            }
          }
         .padding([.leading,.trailing],20)
     }

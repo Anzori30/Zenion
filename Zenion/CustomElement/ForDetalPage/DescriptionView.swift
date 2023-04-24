@@ -22,7 +22,6 @@ struct DescriptionView: View {
                     .foregroundColor(.white)
                 Spacer()
             }
-            
             if !isExpanded {
                 Text(text)
                     .overlay(

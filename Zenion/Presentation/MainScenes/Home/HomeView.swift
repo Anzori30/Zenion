@@ -28,15 +28,16 @@ struct HomeView: View {
                         }
                     }
                 }
-            }  .overlay(
-                HStack{
-                    if viewModel.ActivityIndicator {
-                        ActivityIndicator(isAnimating: true)
-                            .foregroundColor(.red)
-                            .frame(width: 80)
-                    }
-                })
+            }
         }
+        .overlay(
+           HStack{
+               if viewModel.ActivityIndicator {
+                   ActivityIndicator(isAnimating: true)
+                       .foregroundColor(.red)
+                       .frame(width: 80)
+               }
+           })
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -13,7 +13,11 @@ struct UserPage {
     var name: String
 }
 
-
+struct MovieVideo:Hashable{
+    let name: String
+    let photo: String
+    let video: [String]
+}
 
 struct movie: Hashable, Equatable {
     let name: String
