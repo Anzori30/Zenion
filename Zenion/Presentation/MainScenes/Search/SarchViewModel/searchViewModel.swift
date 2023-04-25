@@ -21,7 +21,7 @@ class searchViewModel: ObservableObject {
             Searchmovies = movies
             showMovies = true
             ActivityIndicator = false
-            print("Received notification with movies: \(Searchmovies)")
+//            print("Received notification with movies: \(Searchmovies)")
         }
     }
 }

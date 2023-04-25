@@ -8,6 +8,7 @@
 import SwiftUI
 import Kingfisher
 struct HomeView: View {
+    
     @StateObject var viewModel = HomeModelView()
     @State private var width = CGFloat(Int(UIScreen.main.bounds.width))
     @State private var height = CGFloat(Int(UIScreen.main.bounds.height))

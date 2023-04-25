@@ -7,7 +7,9 @@
 
 import SwiftUI
 import Kingfisher
+
 struct DetalPageView: View {
+    @StateObject var viewModel = DetalPageViewModel()
     @State private var height = CGFloat(Int(UIScreen.main.bounds.height))
     @State private var width = CGFloat(Int(UIScreen.main.bounds.width))
     var movies: movie
@@ -16,9 +18,7 @@ struct DetalPageView: View {
         ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-                
                 ScrollView{
-      
                         VStack{
                             menu(width: width, height: height, movies: movies)
                             DescriptionView(text: movies.description)
@@ -28,15 +28,15 @@ struct DetalPageView: View {
                                     .frame(width: width - 20, height: height / 2.5)
                                             .cornerRadius(20)
                                 .onAppear {
-                                        playerView.playVideo()
-                                    }
+                                    playerView.playVideo()
                             }
-                        }.padding([.bottom],100)
-                }//scroll
-                .ignoresSafeArea()
-            }
+                        }
+                    }.padding([.bottom],100)
+                }
+            .ignoresSafeArea()
         }
     }
+}
 
 struct DetalPageView_Previews: PreviewProvider {
     static var previews: some View {
@@ -52,6 +52,9 @@ fileprivate struct menu: View {
     var width:CGFloat
     var height:CGFloat
     var movies: movie
+    @StateObject var viewModel = DetalPageViewModel()
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var download = "arrow.down.to.line"
     @State private var hiideSeries = true
     var body: some View {
         ZStack{
@@ -104,8 +107,24 @@ fileprivate struct menu: View {
                 .frame(width: 160,height: 40)
                 .background(.purple)
                 .cornerRadius(200)
-                icon(imageName: "bookmark", spacer: true, height: 25)
-                icon(imageName: "arrow.down.to.line", spacer: false, height: 25)
+                Icon(imageName: viewModel.bookmark, spacer: true, height: 25, action: {
+                    if  viewModel.bookmark == "bookmark" {
+                        viewModel.bookmark = "bookmark.fill"
+                        DataController().addFavorite(movieNames: [movies.name], context: managedObjectContext)
+                    } else {
+                        DataController().removeFavorites(movieNames: [movies.name], context: managedObjectContext)
+                        viewModel.bookmark = "bookmark"
+                    }
+                    DataController().printAllFavorites(context: managedObjectContext)
+                })
+
+                Icon(imageName: download, spacer: false, height: 25, action: {
+                    guard download == "arrow.down.to.line" else {
+                        download = "arrow.down.to.line"
+                        return
+                    }
+                    download = "arrow.down.square"
+                })
             }
             
             if !hiideSeries {
@@ -114,33 +133,14 @@ fileprivate struct menu: View {
             }
          }
         .padding([.leading,.trailing],20)
+        .onAppear{
+            viewModel.isFavorite = [movies]
+            DataController().printAllFavorites(context: managedObjectContext)
+        }
     }
 }
 
-fileprivate struct icon: View {
-    var imageName:String
-    var spacer:Bool
-    var height:Int
-    var body: some View {
-        Button {
-           ///            "bookmark"
-        } label: {
-            Image(systemName: imageName)
-                .resizable()
-                .frame(width: 20,height:CGFloat(height))
-                .foregroundColor(Color("textColor"))
-        }
-        .padding([.leading,.trailing],50)
-        .padding([.top],5)
-        .frame(width: 30,height: 30)
-        if spacer{
-            Text("|")
-              .font(.system(size: 25))
-              .foregroundColor(.gray)
-        }
-        
-    }
-}
+
 
 
 

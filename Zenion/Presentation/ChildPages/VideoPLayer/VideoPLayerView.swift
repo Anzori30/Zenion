@@ -7,7 +7,7 @@
 
 import AVKit
 import SwiftUI
-
+import CoreData
 struct VideoPlayerView: View {
     var videoLink: String
     @State private var width = CGFloat(Int(UIScreen.main.bounds.width))

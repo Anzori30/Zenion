@@ -15,13 +15,12 @@ class AllModelView:ObservableObject{
         FirebaseDatabaseInfo().startHTTP()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
     }
-
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false
-            print("Received notification with movies: \(Homemovies)")
+//            print("Received notification with movies: \(Homemovies)")
         }
     }
 }

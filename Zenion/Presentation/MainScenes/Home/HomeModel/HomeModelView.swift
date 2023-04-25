@@ -20,7 +20,6 @@ class HomeModelView: ObservableObject {
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false
-            print("Received notification with movies: \(Homemovies)")
         }
     }
 

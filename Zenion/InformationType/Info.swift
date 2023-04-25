@@ -12,13 +12,14 @@ struct UserPage {
     var destination: AnyView
     var name: String
 }
-
 struct MovieVideo:Hashable{
     let name: String
     let photo: String
     let video: [String]
 }
-
+struct saveFavorite{
+    let MovieName: String
+}
 struct movie: Hashable, Equatable {
     let name: String
     let photo: String

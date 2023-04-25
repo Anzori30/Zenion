@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct FavoriteView: View {
+  
+    @StateObject var viewModel = FavoriteViewModel()
     var body: some View {
-        ZStack{
-            Color("Dark")
-                .ignoresSafeArea()
-            CustomListView(headerText: "Favorite", movies: [], width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+        NavigationView{
+            ZStack{
+                Color("Dark")
+                         .ignoresSafeArea()
+              CustomListView(headerText: "Favorite", movies:viewModel.isFavorite, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+            }
         }
-        //zs end
+        .onAppear{
+            viewModel.start()
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+     
     }
+        
 }
 
 struct FavoriteView_Previews: PreviewProvider {

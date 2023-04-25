@@ -17,7 +17,6 @@ class FirebaseDatabaseInfo {
     }
     func startHTTP() {
         let db = Firestore.firestore()
-
         db.collection("Movies").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
@@ -41,11 +40,9 @@ class FirebaseDatabaseInfo {
                     self.numb = 1
                     self.sendinfo()
                 }
-                
             }
         }
     }
-
     func sendinfo() {
         let notification = Notification(name: Notification.Name("MovieNotification"), object: self.movies, userInfo: nil)
         NotificationCenter.default.post(notification)

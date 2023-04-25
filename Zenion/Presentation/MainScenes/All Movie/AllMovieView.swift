@@ -10,6 +10,7 @@ import SwiftUI
 struct AllMovieView: View {
     @StateObject var viewModel = AllModelView()
     var body: some View {
+        NavigationView{
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
@@ -17,13 +18,14 @@ struct AllMovieView: View {
             }
             //zs end
             .overlay(
-               HStack{
-                   if viewModel.ActivityIndicator {
-                      ActivityIndicator(isAnimating: true)
-                       .foregroundColor(.red)
-                       .frame(width: 80)
-                  }
-           })
+                HStack{
+                    if viewModel.ActivityIndicator {
+                        ActivityIndicator(isAnimating: true)
+                            .foregroundColor(.red)
+                            .frame(width: 80)
+                }
+            })
+        }  .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
