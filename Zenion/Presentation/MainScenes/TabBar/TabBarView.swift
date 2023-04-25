@@ -10,7 +10,6 @@ import SwiftUI
 
 
 struct TabBarView: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var viewModel = TabViewModel()
     var body: some View {
             TabView {
@@ -29,10 +28,6 @@ struct TabBarView: View {
                 FavoriteView()
                     .tabItem {
                         Image(systemName: "heart")
-                    }
-                    .onAppear{
-                        FirebaseDatabaseInfo().startHTTP()
-                        DataController().printAllFavorites(context: managedObjectContext)
                     }
                 userView()
                     .tabItem {

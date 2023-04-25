@@ -48,6 +48,7 @@ struct HomeContents: View {
                     
                 }
             }
+            .padding([.leading],5)
             .scrollIndicators(.hidden)
         }
         

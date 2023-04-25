@@ -22,7 +22,6 @@ struct FavoriteView: View {
             viewModel.start()
         }
         .navigationViewStyle(StackNavigationViewStyle())
-     
     }
         
 }

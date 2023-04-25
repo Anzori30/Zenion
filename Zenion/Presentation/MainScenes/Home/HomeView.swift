@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 struct HomeView: View {
-    
+    @Environment(\.managedObjectContext) var managedObjectContext
     @StateObject var viewModel = HomeModelView()
     @State private var width = CGFloat(Int(UIScreen.main.bounds.width))
     @State private var height = CGFloat(Int(UIScreen.main.bounds.height))
@@ -23,11 +23,13 @@ struct HomeView: View {
                             HomeimageTableView(movies: viewModel.Homemovies, height:Int(width) )
                             HomeContents(headerText: "Continue viewing", movies:viewModel.Homemovies,width: width / 1.8 ,height :height / 3.6 )
                             HomeContents(headerText: "Top Movie", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
-                            HomeContents(headerText: "Top Movie", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
-                            HomeContents(headerText: "premiere", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
+                            HomeContents(headerText: "Top Movie", movies: viewModel.topMovie,width: width / 2.5 ,height :height / 3.3 )
+                            HomeContents(headerText: "Trailer", movies: viewModel.trailer,width: width / 2.5 ,height :height / 3.3 )
                             Spacer()
                         }
+                            
                     }
+                   
                 }
             }
         }
@@ -39,6 +41,13 @@ struct HomeView: View {
                        .frame(width: 80)
                }
            })
+        .onAppear{
+            Uploadfavorite().printAllFavorites()
+            if viewModel.isTake{
+//                Uploadfavorite().addFavorite(movieNames: viewModel.movieNames)
+//                DataController().addFavorite(movieNames: viewModel.movieNames, context: managedObjectContext)
+            }
+        }
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }

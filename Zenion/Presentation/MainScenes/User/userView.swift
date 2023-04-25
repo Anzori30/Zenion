@@ -10,6 +10,7 @@ import SwiftUI
 
 struct userView: View {
     @StateObject var viewModel = UserViewModel()
+    @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         ZStack {
             Color("Dark")
@@ -30,6 +31,7 @@ struct userView: View {
                 Spacer()
                 Button(action: {
                     viewModel.logOut()
+//                    DataController().deleteAllData(context:managedObjectContext )
                 },
                 label: {
                     HStack {

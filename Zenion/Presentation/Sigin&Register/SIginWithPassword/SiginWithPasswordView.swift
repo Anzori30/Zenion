@@ -70,7 +70,6 @@ struct SignInWithPasswordView: View {
                     }
                     
                     Divider()
-                    
                     NavigationLink( destination: TabBarView(),isActive: $viewModel.isSignedIn) {
                         CustomButton(text: "Sign in", color: .purple, Width: 300, Height: 50) {
                             viewModel.signIn(withEmail: userName, password: password)

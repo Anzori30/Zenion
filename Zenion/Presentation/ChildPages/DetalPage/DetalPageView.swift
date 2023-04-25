@@ -110,14 +110,13 @@ fileprivate struct menu: View {
                 Icon(imageName: viewModel.bookmark, spacer: true, height: 25, action: {
                     if  viewModel.bookmark == "bookmark" {
                         viewModel.bookmark = "bookmark.fill"
-                        DataController().addFavorite(movieNames: [movies.name], context: managedObjectContext)
+                        Uploadfavorite().addFavorite(movieNames: [movies.name])
                     } else {
-                        DataController().removeFavorites(movieNames: [movies.name], context: managedObjectContext)
                         viewModel.bookmark = "bookmark"
+                        Uploadfavorite().removeFavorites(movieNames: [movies.name])
                     }
-                    DataController().printAllFavorites(context: managedObjectContext)
+                    Uploadfavorite().printAllFavorites()
                 })
-
                 Icon(imageName: download, spacer: false, height: 25, action: {
                     guard download == "arrow.down.to.line" else {
                         download = "arrow.down.to.line"
@@ -135,7 +134,8 @@ fileprivate struct menu: View {
         .padding([.leading,.trailing],20)
         .onAppear{
             viewModel.isFavorite = [movies]
-            DataController().printAllFavorites(context: managedObjectContext)
+            Uploadfavorite().printAllFavorites()
+//            DataController().printAllFavorites(context: managedObjectContext)
         }
     }
 }
