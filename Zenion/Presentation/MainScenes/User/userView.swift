@@ -8,59 +8,73 @@
 import SwiftUI
 
 
-struct userView: View {
+struct UserView: View {
     @StateObject var viewModel = UserViewModel()
-    @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
-        ZStack {
-            Color("Dark")
-                .ignoresSafeArea()
-            VStack {
-                Spacer()
-                ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail)
-                Spacer()
-                UserSclorLIstView(info:
-                                [
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Profile"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Subscription"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Setting"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Downloads"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Promocodes"),
-                                    UserPage(destination: AnyView(FavoriteView()), name: "Support"),
-                                ])
-                Spacer()
-                Button(action: {
-                    viewModel.logOut()
-//                    DataController().deleteAllData(context:managedObjectContext )
-                },
-                label: {
-                    HStack {
-                        Image(systemName: "rectangle.portrait.and.arrow.forward")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.white)
-                        Text("Log out")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
+        NavigationView {
+            ZStack {
+                Color("Dark")
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Spacer()
+                
+                    ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail)
+                    Spacer()
+                    UserSclorLIstView(info:
+                                        [
+                                            UserPage(destination: AnyView(FavoriteView()), name: "Profile"),
+                                            UserPage(destination: AnyView(FavoriteView()), name: "Subscription"),
+                                            UserPage(destination: AnyView(FavoriteView()), name: "Setting"),
+                                            UserPage(destination: AnyView(FavoriteView()), name: "Downloads"),
+                                            UserPage(destination: AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History")), name: "History"),
+                                            UserPage(destination: AnyView(FavoriteView()), name: "Support"),
+                                        ])
+        
+                    Spacer()
+                    
+                    Button(action: {
+                        viewModel.logOut()
+                    },
+                           label: {
+                        HStack {
+                            Image(systemName: "rectangle.portrait.and.arrow.forward")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.white)
+                            
+                            Text("Log out")
+                                .font(.system(size: 18, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                        }
+                    })
+                    
+                    Spacer()
+                }
+                .padding([.leading,.trailing],10)
+            }
+            .overlay(
+                HStack{
+                    if viewModel.ActivityIndicator {
+                        Zenion.ActivityIndicator(isAnimating: true)
+                            .foregroundColor(.red)
+                            .frame(width: 80)
                     }
                 })
-                Spacer()
-            }
-            .padding([.leading,.trailing],10)
-        } .overlay(
-            HStack{
-                if viewModel.ActivityIndicator {
-                    Zenion.ActivityIndicator(isAnimating: true)
-                        .foregroundColor(.red)
-                        .frame(width: 80)
-            }
-        })
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
+
+
+
+
+
+
 struct userView_Previews: PreviewProvider {
     static var previews: some View {
-        userView()
+        UserView()
     }
 }
 

@@ -8,14 +8,19 @@
 import AVKit
 import SwiftUI
 import CoreData
+
 struct VideoPlayerView: View {
+    var movieName: String
     var videoLink: String
     @State private var width = CGFloat(Int(UIScreen.main.bounds.width))
     @State private var height = CGFloat(Int(UIScreen.main.bounds.height))
     @State private var isLoading = true
+    @State private var endTimes = Double()
+   @State private var fullTime = Double()
     var body: some View {
         if let url = URL(string: videoLink) {
             let player = AVPlayer(url: url)
+            var observers = [Any]()
             ZStack {
                 Player(player: player)
                     .frame(width: width, height: height)
@@ -31,44 +36,38 @@ struct VideoPlayerView: View {
                     isLoading = false
                 }
             }
+            .onAppear {
+                let observer = player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1), queue: DispatchQueue.main) { [weak player] time in
+                    guard let player = player else {
+                        return
+                    }
+                    print("Current time: \(time.seconds)")
+                    fullTime = time.seconds
+                    if let currentItem = player.currentItem {
+                        endTimes = currentItem.asset.duration.seconds
+                    }
+                }
+                observers.append(observer)
+            }
+            .onDisappear {
+                if endTimes != 0.0  && fullTime != 0.0 {
+                    HistoryUpload().removeHistory(movieNames: [movieName])
+                    HistoryUpload().saveHistoryToFirestore(history: SaveHistory(MovieName: movieName, fullTime: fullTime, endTime: endTimes - 900 ))
+                }
+                
+                
+                player.replaceCurrentItem(with: nil)
+                observers.removeAll()
+            }
         }
-    }
-}
-struct VideoPlayerView_Previews: PreviewProvider {
-    static var previews: some View {
-        VideoPlayerView(videoLink: "")
     }
 }
 
-struct Player: UIViewControllerRepresentable {
-    let player: AVPlayer
-    func makeUIViewController(context: UIViewControllerRepresentableContext<Player>) -> AVPlayerViewController {
-        let controller = AVPlayerViewController()
-        controller.player = player
-        player.play()
-        return controller
-    }
-    func updateUIViewController(_ uiViewController: AVPlayerViewController, context: UIViewControllerRepresentableContext<Player>) {
-    }
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    class Coordinator: NSObject {
-        let parent: Player
-        
-        init(_ parent: Player) {
-            self.parent = parent
-            super.init()
-                    NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: parent.player.currentItem)
-        }
-        
-        deinit {
-            NotificationCenter.default.removeObserver(self)
-        }
-        
-        @objc func playerDidFinishPlaying(_ note: NSNotification) {
-           
-        }
+struct VideoPlayerView_Previews: PreviewProvider {
+    static var previews: some View {
+        VideoPlayerView(movieName: "", videoLink: "https://example.com/video.mp4")
     }
 }
+
+
+

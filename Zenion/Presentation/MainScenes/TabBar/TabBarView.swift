@@ -21,15 +21,17 @@ struct TabBarView: View {
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                     }
-                AllMovieView()
-                    .tabItem {
-                        Image(systemName: "rectangle.grid.2x2")
-                    }
+                NavigationView{
+                    AllMovieView(movies: [], title: "All")
+                }  .navigationViewStyle(StackNavigationViewStyle())
+                .tabItem {
+                            Image(systemName: "rectangle.grid.2x2")
+                }
                 FavoriteView()
                     .tabItem {
                         Image(systemName: "heart")
                     }
-                userView()
+                UserView()
                     .tabItem {
                         Image(systemName: "person")
                     }

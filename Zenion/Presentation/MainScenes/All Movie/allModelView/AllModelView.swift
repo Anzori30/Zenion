@@ -8,7 +8,7 @@
 import SwiftUI
 
 class AllModelView:ObservableObject{
-    var Homemovies = [movie]()
+    var Movie = [movie]()
     @Published var showMovies = false
     @Published var ActivityIndicator = true
     init() {
@@ -17,7 +17,7 @@ class AllModelView:ObservableObject{
     }
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
-            Homemovies = movies
+            Movie = movies
             showMovies = true
             ActivityIndicator = false
 //            print("Received notification with movies: \(Homemovies)")

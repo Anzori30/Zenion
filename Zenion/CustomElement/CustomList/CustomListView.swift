@@ -15,7 +15,7 @@ struct CustomListView: View {
     let height: Int
     
     var body: some View {
-        VStack {
+        VStack{
             HStack {
                 Text(headerText)
                     .font(.system(size: 25, weight: .bold, design: .rounded))
@@ -29,7 +29,7 @@ struct CustomListView: View {
                 }
                 .padding([.trailing,.bottom],30)
             }
-            
+            .frame(height: 40)
             ScrollView {
                 LazyVStack {
                     ForEach(movies, id: \.self) { movie in
@@ -74,7 +74,7 @@ struct CustomListView: View {
                 }
                 .padding([.bottom],150)
             }
-            
+            .cornerRadius(30)
             .padding([.bottom,],-100)
             .padding([.leading,.trailing,],7)
         }

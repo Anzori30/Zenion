@@ -20,16 +20,17 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 50) {
                         if viewModel.showMovies {
+                            
                             HomeimageTableView(movies: viewModel.Homemovies, height:Int(width) )
-                            HomeContents(headerText: "Continue viewing", movies:viewModel.Homemovies,width: width / 1.8 ,height :height / 3.6 )
-                            HomeContents(headerText: "Top Movie", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
+                            if !viewModel.historyMovies.isEmpty{
+                              HomeContents(headerText: "Continue viewing", movies:viewModel.historyMovies,width: width / 2.0 ,height :height / 3.6 )
+                            }
+                            HomeContents(headerText: "All Movie", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
                             HomeContents(headerText: "Top Movie", movies: viewModel.topMovie,width: width / 2.5 ,height :height / 3.3 )
                             HomeContents(headerText: "Trailer", movies: viewModel.trailer,width: width / 2.5 ,height :height / 3.3 )
                             Spacer()
-                        }
-                            
+                        }    
                     }
-                   
                 }
             }
         }
@@ -43,10 +44,6 @@ struct HomeView: View {
            })
         .onAppear{
             Uploadfavorite().printAllFavorites()
-            if viewModel.isTake{
-//                Uploadfavorite().addFavorite(movieNames: viewModel.movieNames)
-//                DataController().addFavorite(movieNames: viewModel.movieNames, context: managedObjectContext)
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

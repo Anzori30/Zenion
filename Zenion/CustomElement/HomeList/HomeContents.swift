@@ -13,45 +13,46 @@ struct HomeContents: View {
     let width:CGFloat
     let height:CGFloat
     var body: some View {
-        VStack{
-            HStack{
-                Text(headerText)
-                    .font(.system(size: 25, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
-                    .padding([.leading],20)
-                Spacer()
-                NavigationLink(destination: FavoriteView()){
-                    Text("see More")
-                    .padding([.trailing],20)
-                    .font(.system(size: 14, weight: .bold ))
+        if !movies.isEmpty{
+            VStack{
+                HStack{
+                    Text(headerText)
+                        .font(.system(size: 25, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding([.leading],20)
+                    Spacer()
+                    NavigationLink(destination: AllMovieView(movies: movies, title: headerText)){
+                        Text("see More")
+                            .padding([.trailing],20)
+                            .font(.system(size: 14, weight: .bold ))
+                    }
                 }
-
-            }
-            ScrollView(.horizontal) {
-                HStack {
-                    ForEach(movies, id: \.self) { movie in
-                        NavigationLink(destination: DetalPageView(movies: movie) ){
-                        VStack{
-                            KFImage(URL(string: movie.photo))
-                                   .resizable()
-                                   .frame(width: width, height:height - 50)
-                                   .cornerRadius(30)
-                            Text(movie.name)
-                                   .font(.system(size: 20, weight: .bold, design: .rounded))
-                                   .foregroundColor(.white)
-                                   .frame(height:50)
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(movies, id: \.self) { movie in
+                            NavigationLink(destination: DetalPageView(movies: movie) ){
+                                VStack{
+                                    KFImage(URL(string: movie.photo))
+                                        .resizable()
+                                        .frame(width: width, height:height - 50)
+                                        .cornerRadius(30)
+                                    Text(movie.name)
+                                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                                        .foregroundColor(.white)
+                                        .frame(height:50)
+                                }
+                                .frame(width: width,height: height + 20)
+                            }
+                            
                         }
-                        .frame(width: width,height: height + 20)
-                     }
                         
                     }
-                    
                 }
+                .padding([.leading],5)
+                .scrollIndicators(.hidden)
             }
-            .padding([.leading],5)
-            .scrollIndicators(.hidden)
+            
         }
-        
     }
 }
 

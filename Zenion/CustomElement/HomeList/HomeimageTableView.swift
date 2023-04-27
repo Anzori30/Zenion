@@ -15,7 +15,6 @@ struct HomeimageTableView: View {
     let height: Int
     @State private var selectedMovie: movie?
     @State private var showIndicator: Bool = true // add state variable for indicator
-    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -28,23 +27,22 @@ struct HomeimageTableView: View {
                                 .cornerRadius(20)
                                 .shadow(radius: 5)
                         }
-                        .padding([.trailing],40)
                         .onAppear {
-                            withAnimation(.easeInOut(duration: 0.3)){
-                                selectedMovie = movies[index]
-                            }
-                        }
-                       
+                                withAnimation(.easeInOut(duration: 0.3)){
+                                  selectedMovie = movies[index]
+                              }
+                           }
+                        .padding([.trailing],40)
                     }
                 }
                 .padding([.leading, .trailing])
                .padding(.vertical, 20)
           }
             .background(
-                ZStack {
+                HStack {
                     KFImage(URL(string: selectedMovie?.photo ?? ""))
                         .resizable()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.9)
+                        .frame(width: UIScreen.main.bounds.width + 20 , height: UIScreen.main.bounds.height * 0.9)
                         .scaledToFill()
                         .blur(radius: 10)
                     LinearGradient(
@@ -55,7 +53,6 @@ struct HomeimageTableView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
             )
-       
         }
     }
 }

@@ -10,7 +10,8 @@ class HomeModelView: ObservableObject {
     var Homemovies = [movie]()
     var trailer = [movie]()
     var topMovie = [movie]()
-   @Published var showMovies = false
+    @Published  var historyMovies = [movie]()
+    @Published var showMovies = false
     @Published var isTake = Bool()
     @Published var ActivityIndicator = true
 //    @Published var movieNames = [String]()
@@ -18,10 +19,12 @@ class HomeModelView: ObservableObject {
         FirebaseDatabaseInfo().startHTTP()
         Uploadfavorite().printAllFavorites()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("FirebaseFavorite"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
     }
+    // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
+            HistoryUpload().printAllHistory()
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false
@@ -29,13 +32,8 @@ class HomeModelView: ObservableObject {
             top()
         }
     }
-//    @objc func MovieNotification(_ notification: Notification) {
-//              if let movies = notification.object as? [String], !movies.isEmpty {
-//               movieNames = movies
-//               isTake = true
-//        }
-//    }
-    
+  
+    // Mark  filters
     func trailerFilter() {
         var uniqueTrailers = Set<movie>()
         for item in Homemovies {
@@ -53,6 +51,19 @@ class HomeModelView: ObservableObject {
             }
         }
         topMovie = Array(uniqueTrailers)
+    }
+    // history
+    @objc func MovieNotification(_ notification: Notification) {
+        guard let history = notification.object as? [SaveHistory], !history.isEmpty else { return }
+
+        historyMovies = []
+        for savedHistory in history {
+            if savedHistory.fullTime <= savedHistory.endTime,
+               let movie = Homemovies.first(where: { $0.name == savedHistory.MovieName }) {
+                historyMovies.append(movie)
+                print(historyMovies)
+            }
+        }
     }
 
 

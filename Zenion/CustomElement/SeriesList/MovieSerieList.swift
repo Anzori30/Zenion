@@ -26,7 +26,7 @@ struct MovieSerieList: View {
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(Array(movies.video.enumerated()), id: \.element) { index, video in
-                        NavigationLink(destination: VideoPlayerView(videoLink: movies.video[index])) {
+                        NavigationLink(destination: VideoPlayerView(movieName: movies.name, videoLink: movies.video[index])) {
                             VStack {
                                 KFImage(URL(string: movies.photo))
                                     .resizable()

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserSclorLIstView: View {
     var info = [UserPage]()
+
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
@@ -24,6 +25,7 @@ struct UserSclorLIstView: View {
                                 .frame(width: 17, height: 17)
                         }
                     }
+
                     .padding([.leading, .trailing], 20)
                     .frame(height: 50)
                     .background(Color("Gray"))
@@ -34,4 +36,3 @@ struct UserSclorLIstView: View {
         .frame(height: CGFloat(info.count) * 60)
     }
 }
-

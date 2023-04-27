@@ -16,7 +16,7 @@
 		FA222E1D29F03CC8002BC088 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA222E1C29F03CC8002BC088 /* UserViewModel.swift */; };
 		FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */; };
 		FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */; };
-		FA46CF1629F850AE007B8F4B /* Upload favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46CF1529F850AE007B8F4B /* Upload favorite.swift */; };
+		FA46CF1629F850AE007B8F4B /* Uploadfavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46CF1529F850AE007B8F4B /* Uploadfavorite.swift */; };
 		FA487CE229E4706200FC332C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE129E4706200FC332C /* Info.swift */; };
 		FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE529E4793C00FC332C /* DestinationStart.swift */; };
 		FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE729E47A0C00FC332C /* LaunchScreen.swift */; };
@@ -66,6 +66,8 @@
 		FAD5985229F7393A00C4B4D6 /* UserSclorLIstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5985129F7393A00C4B4D6 /* UserSclorLIstView.swift */; };
 		FAD5985429F7396300C4B4D6 /* ProfilePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5985329F7396300C4B4D6 /* ProfilePhoto.swift */; };
 		FAD5985629F7533C00C4B4D6 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5985529F7533C00C4B4D6 /* Icon.swift */; };
+		FAD7D8DE29FA9DA800E54138 /* HistoryUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */; };
+		FAD7D8E129FAB34100E54138 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8E029FAB34100E54138 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +96,7 @@
 		FA222E1C29F03CC8002BC088 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		FA3E479C29EABE7300D1A93C /* FirebaseDatabaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabaseInfo.swift; sourceTree = "<group>"; };
 		FA3E479E29EADF1C00D1A93C /* HomeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModelView.swift; sourceTree = "<group>"; };
-		FA46CF1529F850AE007B8F4B /* Upload favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Upload favorite.swift"; sourceTree = "<group>"; };
+		FA46CF1529F850AE007B8F4B /* Uploadfavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uploadfavorite.swift; sourceTree = "<group>"; };
 		FA487CE129E4706200FC332C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		FA487CE529E4793C00FC332C /* DestinationStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationStart.swift; sourceTree = "<group>"; };
 		FA487CE729E47A0C00FC332C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		FAD5985129F7393A00C4B4D6 /* UserSclorLIstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSclorLIstView.swift; sourceTree = "<group>"; };
 		FAD5985329F7396300C4B4D6 /* ProfilePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhoto.swift; sourceTree = "<group>"; };
 		FAD5985529F7533C00C4B4D6 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryUpload.swift; sourceTree = "<group>"; };
+		FAD7D8E029FAB34100E54138 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,7 @@
 		FA3E479B29EABE5A00D1A93C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7D8DC29FA9D9300E54138 /* HistoryUpload */,
 				FA46CF1329F8508E007B8F4B /* UploadFavorite */,
 				FA77B8E429F010CF00B8317C /* MovieImort */,
 				FA77B8E129F0108300B8317C /* PhotoUpload */,
@@ -244,7 +249,7 @@
 		FA46CF1329F8508E007B8F4B /* UploadFavorite */ = {
 			isa = PBXGroup;
 			children = (
-				FA46CF1529F850AE007B8F4B /* Upload favorite.swift */,
+				FA46CF1529F850AE007B8F4B /* Uploadfavorite.swift */,
 			);
 			path = UploadFavorite;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 		FA7AECA429DCDADC00DC1ED8 /* CustomElement */ = {
 			isa = PBXGroup;
 			children = (
+				FAD7D8DF29FAB32600E54138 /* VideoPLayer */,
 				FAD5984E29F7391700C4B4D6 /* ForUserPage */,
 				FA0EDC8A29F585170041AF89 /* SeriesList */,
 				FA8B298D29F3367B00A12CE7 /* HomeList */,
@@ -624,6 +630,22 @@
 				FAD5985329F7396300C4B4D6 /* ProfilePhoto.swift */,
 			);
 			path = ForUserPage;
+			sourceTree = "<group>";
+		};
+		FAD7D8DC29FA9D9300E54138 /* HistoryUpload */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */,
+			);
+			path = HistoryUpload;
+			sourceTree = "<group>";
+		};
+		FAD7D8DF29FAB32600E54138 /* VideoPLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FAD7D8E029FAB34100E54138 /* Player.swift */,
+			);
+			path = VideoPLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -775,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7AECA629DCDAEF00DC1ED8 /* CustomRegisterButtom.swift in Sources */,
+				FAD7D8DE29FA9DA800E54138 /* HistoryUpload.swift in Sources */,
 				FA772EA029E6E2F800964048 /* CustomButton.swift in Sources */,
 				FA8B299129F336C600A12CE7 /* HomeimageTableView.swift in Sources */,
 				FAD5985229F7393A00C4B4D6 /* UserSclorLIstView.swift in Sources */,
@@ -805,7 +828,7 @@
 				FAD5985429F7396300C4B4D6 /* ProfilePhoto.swift in Sources */,
 				FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */,
 				FAD5985629F7533C00C4B4D6 /* Icon.swift in Sources */,
-				FA46CF1629F850AE007B8F4B /* Upload favorite.swift in Sources */,
+				FA46CF1629F850AE007B8F4B /* Uploadfavorite.swift in Sources */,
 				FAD29A6029DDB1FF0009F917 /* FavoriteView.swift in Sources */,
 				FAD1294E29F31C75003706AE /* YouTubePlayerView.swift in Sources */,
 				FAD5984A29F7061100C4B4D6 /* DataController.swift in Sources */,
@@ -816,6 +839,7 @@
 				FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */,
 				FA772E9C29E6DCE900964048 /* ResetPasswordModelView.swift in Sources */,
 				FA0EDC8F29F5B1980041AF89 /* VideoPLayerView.swift in Sources */,
+				FAD7D8E129FAB34100E54138 /* Player.swift in Sources */,
 				FA487CE229E4706200FC332C /* Info.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

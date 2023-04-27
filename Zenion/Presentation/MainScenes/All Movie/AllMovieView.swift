@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct AllMovieView: View {
+    var movies : [movie]
+    var title:String
     @StateObject var viewModel = AllModelView()
     var body: some View {
-        NavigationView{
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-                CustomListView(headerText: "All", movies: viewModel.Homemovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                if movies.isEmpty{
+                    CustomListView(headerText: "All", movies: viewModel.Movie , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                }
+                else{
+                    CustomListView(headerText: title, movies: movies , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                }
             }
             //zs end
             .overlay(
@@ -25,12 +31,16 @@ struct AllMovieView: View {
                             .frame(width: 80)
                 }
             })
-        }  .navigationViewStyle(StackNavigationViewStyle())
+            .onAppear{
+                HistoryUpload().printAllHistory()
+            }
+        
     }
+    
 }
 
 struct AllMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        AllMovieView()
+        AllMovieView(movies: [], title:"All")
     }
 }

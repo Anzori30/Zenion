@@ -20,6 +20,11 @@ struct MovieVideo:Hashable{
 struct saveFavorite{
     let MovieName: String
 }
+struct SaveHistory{
+    let MovieName: String
+    let fullTime:Double
+    let endTime:Double
+}
 struct movie: Hashable, Equatable {
     let name: String
     let photo: String
