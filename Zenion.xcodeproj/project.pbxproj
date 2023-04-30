@@ -23,6 +23,7 @@
 		FA4C0E1A29DCDD2B00D035C6 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C0E1929DCDD2B00D035C6 /* ResetPasswordView.swift */; };
 		FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C0E1E29DCE29800D035C6 /* CreatAccountView.swift */; };
 		FA4C0E2129DCE53700D035C6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4C0E2029DCE53700D035C6 /* Colors.xcassets */; };
+		FA4F395E29FD9B1E00B7CF0A /* FilterPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4F395D29FD9B1E00B7CF0A /* FilterPageView.swift */; };
 		FA5EC59529F2FB1400751923 /* DetalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC59429F2FB1400751923 /* DetalPageView.swift */; };
 		FA5EC59929F30DCF00751923 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5EC59829F30DCF00751923 /* DescriptionView.swift */; };
 		FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6585E029DDB8E60057D70C /* TabBarView.swift */; };
@@ -45,6 +46,9 @@
 		FA7AECA629DCDAEF00DC1ED8 /* CustomRegisterButtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AECA529DCDAEF00DC1ED8 /* CustomRegisterButtom.swift */; };
 		FA8B298F29F3368800A12CE7 /* HomeContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B298E29F3368800A12CE7 /* HomeContents.swift */; };
 		FA8B299129F336C600A12CE7 /* HomeimageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B299029F336C600A12CE7 /* HomeimageTableView.swift */; };
+		FABFF66529FE70EC00B58948 /* RangedSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF66429FE70EC00B58948 /* RangedSliderView.swift */; };
+		FABFF66829FE88AE00B58948 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF66729FE88AE00B58948 /* FilterViewModel.swift */; };
+		FABFF66B29FEA3B700B58948 /* CustomListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABFF66A29FEA3B700B58948 /* CustomListViewViewModel.swift */; };
 		FAD1293C29F31819003706AE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FAD1293B29F31819003706AE /* FirebaseAnalytics */; };
 		FAD1293E29F31819003706AE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAD1293D29F31819003706AE /* FirebaseAuth */; };
 		FAD1294029F31819003706AE /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAD1293F29F31819003706AE /* FirebaseDatabase */; };
@@ -103,6 +107,7 @@
 		FA4C0E1929DCDD2B00D035C6 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		FA4C0E1E29DCE29800D035C6 /* CreatAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatAccountView.swift; sourceTree = "<group>"; };
 		FA4C0E2029DCE53700D035C6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FA4F395D29FD9B1E00B7CF0A /* FilterPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPageView.swift; sourceTree = "<group>"; };
 		FA5EC59429F2FB1400751923 /* DetalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalPageView.swift; sourceTree = "<group>"; };
 		FA5EC59829F30DCF00751923 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		FA6585E029DDB8E60057D70C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -128,6 +133,9 @@
 		FA7AECA529DCDAEF00DC1ED8 /* CustomRegisterButtom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegisterButtom.swift; sourceTree = "<group>"; };
 		FA8B298E29F3368800A12CE7 /* HomeContents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContents.swift; sourceTree = "<group>"; };
 		FA8B299029F336C600A12CE7 /* HomeimageTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeimageTableView.swift; sourceTree = "<group>"; };
+		FABFF66429FE70EC00B58948 /* RangedSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedSliderView.swift; sourceTree = "<group>"; };
+		FABFF66729FE88AE00B58948 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		FABFF66A29FEA3B700B58948 /* CustomListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListViewViewModel.swift; sourceTree = "<group>"; };
 		FAD1294D29F31C75003706AE /* YouTubePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePlayerView.swift; sourceTree = "<group>"; };
 		FAD29A5929DDB1DB0009F917 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FAD29A5B29DDB1E20009F917 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -288,9 +296,19 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		FA4F395C29FD9B0700B7CF0A /* Filterpage */ = {
+			isa = PBXGroup;
+			children = (
+				FA4F395D29FD9B1E00B7CF0A /* FilterPageView.swift */,
+				FABFF66629FE882100B58948 /* Filerviewmodel */,
+			);
+			path = Filterpage;
+			sourceTree = "<group>";
+		};
 		FA5EC59029F2FADB00751923 /* ChildPages */ = {
 			isa = PBXGroup;
 			children = (
+				FA4F395C29FD9B0700B7CF0A /* Filterpage */,
 				FA0EDC8D29F5B17E0041AF89 /* VideoPLayer */,
 				FA5EC59129F2FAEA00751923 /* DetalPage */,
 			);
@@ -336,6 +354,7 @@
 		FA6A7A4B29E1C36C00A549D1 /* CustomList */ = {
 			isa = PBXGroup;
 			children = (
+				FABFF66929FEA3AA00B58948 /* CustomListViewViewModel */,
 				FA6A7A4E29E1C38E00A549D1 /* CustomListView.swift */,
 			);
 			path = CustomList;
@@ -498,6 +517,7 @@
 		FA7AECA429DCDADC00DC1ED8 /* CustomElement */ = {
 			isa = PBXGroup;
 			children = (
+				FABFF66329FE70E600B58948 /* RangedSliderView */,
 				FAD7D8DF29FAB32600E54138 /* VideoPLayer */,
 				FAD5984E29F7391700C4B4D6 /* ForUserPage */,
 				FA0EDC8A29F585170041AF89 /* SeriesList */,
@@ -519,6 +539,30 @@
 				FA8B299029F336C600A12CE7 /* HomeimageTableView.swift */,
 			);
 			path = HomeList;
+			sourceTree = "<group>";
+		};
+		FABFF66329FE70E600B58948 /* RangedSliderView */ = {
+			isa = PBXGroup;
+			children = (
+				FABFF66429FE70EC00B58948 /* RangedSliderView.swift */,
+			);
+			path = RangedSliderView;
+			sourceTree = "<group>";
+		};
+		FABFF66629FE882100B58948 /* Filerviewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				FABFF66729FE88AE00B58948 /* FilterViewModel.swift */,
+			);
+			path = Filerviewmodel;
+			sourceTree = "<group>";
+		};
+		FABFF66929FEA3AA00B58948 /* CustomListViewViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FABFF66A29FEA3B700B58948 /* CustomListViewViewModel.swift */,
+			);
+			path = CustomListViewViewModel;
 			sourceTree = "<group>";
 		};
 		FAD1294C29F31C5C003706AE /* YoutubePlayer */ = {
@@ -800,6 +844,7 @@
 				FAD7D8DE29FA9DA800E54138 /* HistoryUpload.swift in Sources */,
 				FA772EA029E6E2F800964048 /* CustomButton.swift in Sources */,
 				FA8B299129F336C600A12CE7 /* HomeimageTableView.swift in Sources */,
+				FABFF66B29FEA3B700B58948 /* CustomListViewViewModel.swift in Sources */,
 				FAD5985229F7393A00C4B4D6 /* UserSclorLIstView.swift in Sources */,
 				FAD29A5E29DDB1F00009F917 /* AllMovieView.swift in Sources */,
 				FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */,
@@ -827,9 +872,12 @@
 				FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */,
 				FAD5985429F7396300C4B4D6 /* ProfilePhoto.swift in Sources */,
 				FA3E479D29EABE7300D1A93C /* FirebaseDatabaseInfo.swift in Sources */,
+				FA4F395E29FD9B1E00B7CF0A /* FilterPageView.swift in Sources */,
 				FAD5985629F7533C00C4B4D6 /* Icon.swift in Sources */,
 				FA46CF1629F850AE007B8F4B /* Uploadfavorite.swift in Sources */,
+				FABFF66829FE88AE00B58948 /* FilterViewModel.swift in Sources */,
 				FAD29A6029DDB1FF0009F917 /* FavoriteView.swift in Sources */,
+				FABFF66529FE70EC00B58948 /* RangedSliderView.swift in Sources */,
 				FAD1294E29F31C75003706AE /* YouTubePlayerView.swift in Sources */,
 				FAD5984A29F7061100C4B4D6 /* DataController.swift in Sources */,
 				FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */,

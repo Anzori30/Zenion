@@ -40,7 +40,7 @@ struct DetalPageView: View {
 
 struct DetalPageView_Previews: PreviewProvider {
     static var previews: some View {
-        DetalPageView(movies: movie(name: "", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPCXISA7AWonO3J24GKCgtJ9e4OTuaJHSBM7rcN3j28GfR6eJAJTe1Gi_AlJpG6wuFnCs&usqp=CAU", location: "sdffsafsf", description: "sdsfdfsf", genre: ["fdsfsf","sdasd"], director: "dsadfsdf", video: ["dsdsdsaddasd","SDsafdsfsdfs","dasdd"], trailer: "", star: 0.0, actors: [], favorite: true, years: 0))
+        DetalPageView(movies: movie(name: "", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPCXISA7AWonO3J24GKCgtJ9e4OTuaJHSBM7rcN3j28GfR6eJAJTe1Gi_AlJpG6wuFnCs&usqp=CAU", location: ["sdffsafsf"], description: "sdsfdfsf", genre: ["fdsfsf","sdasd"], director: "dsadfsdf", video: ["dsdsdsaddasd","SDsafdsfsdfs","dasdd"], trailer: "", star: 0.0, actors: [], favorite: true, years: 0))
     }
 }
 
@@ -81,7 +81,7 @@ fileprivate struct menu: View {
                     .frame(width: 15, height: 15)
                 Spacer()
             }
-            Text("\(String(movies.years)) \(movies.location)")
+            Text("\(String(movies.years)) \(movies.location.joined(separator: ", "))")
                 .font(.system(size: 15, weight: .bold, design: .rounded))
                 .foregroundColor(Color("textColor"))
             Text(movies.genre.joined(separator: ", "))

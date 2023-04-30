@@ -61,7 +61,6 @@ class HomeModelView: ObservableObject {
             if savedHistory.fullTime <= savedHistory.endTime,
                let movie = Homemovies.first(where: { $0.name == savedHistory.MovieName }) {
                 historyMovies.append(movie)
-                print(historyMovies)
             }
         }
     }

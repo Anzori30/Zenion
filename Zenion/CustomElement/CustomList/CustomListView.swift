@@ -13,8 +13,9 @@ struct CustomListView: View {
     var movies: [movie]
     let width: Int
     let height: Int
-    
+     @State  var ishide = Bool()
     var body: some View {
+        @ObservedObject var viewModel = CustomListViewViewModel(Movie: movies)
         VStack{
             HStack {
                 Text(headerText)
@@ -22,7 +23,7 @@ struct CustomListView: View {
                     .foregroundColor(.white)
                     .padding([.leading],20)
                 Spacer()
-                NavigationLink(destination: HomeView()) {
+                NavigationLink(destination: FilterPageView()) {
                     Image(systemName: "square.rightthird.inset.filled")
                         .frame(width: 30, height: 30)
                         .foregroundColor(.gray)
@@ -31,8 +32,33 @@ struct CustomListView: View {
             }
             .frame(height: 40)
             ScrollView {
-                LazyVStack {
-                    ForEach(movies, id: \.self) { movie in
+                VStack {
+                    if ishide{
+                        List(movies: viewModel.filtermovies, width: width, height: height)
+                    }
+                  
+                }
+                .padding([.bottom],150)
+            }
+            .cornerRadius(30)
+            .padding([.bottom,],-100)
+            .padding([.leading,.trailing,],7)
+        }
+        .onAppear{
+            ishide = false
+            viewModel.history()
+            ishide = true
+        }
+        
+    }
+}
+
+fileprivate struct List: View {
+    var movies: [movie]
+    let width: Int
+    let height: Int
+    var body: some View {
+            ForEach(movies, id: \.self) { movie in
                         NavigationLink(destination: DetalPageView(movies: movie) ){
                         HStack {
                             KFImage(URL(string: movie.photo))
@@ -53,8 +79,7 @@ struct CustomListView: View {
                                         .frame(width: 15, height: 15)
                                     Spacer()
                                 }
-                                 
-                                Text("\(String(movie.years)) \(movie.location)")
+                                Text("\(String(movie.years)) \(movie.location.joined(separator: ", "))")
                                     .font(.system(size: 15, weight: .bold, design: .rounded))
                                     .foregroundColor(Color("textColor"))
                                 Text(movie.genre.joined(separator: ", "))
@@ -69,14 +94,10 @@ struct CustomListView: View {
                             .padding([.leading,],0)
                           }
                         }
-                        .listRowBackground(Color.clear)
-                    }
-                }
-                .padding([.bottom],150)
+                 .listRowBackground(Color.clear)
             }
-            .cornerRadius(30)
-            .padding([.bottom,],-100)
-            .padding([.leading,.trailing,],7)
+          
         }
+
     }
-}
+

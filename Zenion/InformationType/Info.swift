@@ -17,6 +17,16 @@ struct MovieVideo:Hashable{
     let photo: String
     let video: [String]
 }
+struct filterMovies:Encodable,Decodable{
+    let type:Int
+    let genre : String
+    let country : String
+    let minYear: Int
+    let maxYear: Int
+    let minRating: Double
+    let maxRating: Double
+    let hideViewing:Bool
+}
 struct saveFavorite{
     let MovieName: String
 }
@@ -28,7 +38,7 @@ struct SaveHistory{
 struct movie: Hashable, Equatable {
     let name: String
     let photo: String
-    let location: String
+    let location: [String]
     let description: String
     let genre: [String]
     let director: String

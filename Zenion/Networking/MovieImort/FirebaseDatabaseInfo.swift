@@ -27,7 +27,7 @@ class FirebaseDatabaseInfo {
                     let description = data["description"] as? String ?? ""
                     let director = data["director"] as? String ?? ""
                     let genre = data["genre"] as? [String] ?? []
-                    let location = data["location"] as? String ?? ""
+                    let location = data["location"] as? [String] ?? []
                     let name = data["name"] as? String ?? ""
                     let video = data["video"] as? [String] ?? []
                     let trailer = data["trailer"] as? String ?? ""
