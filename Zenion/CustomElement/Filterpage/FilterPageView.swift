@@ -30,7 +30,7 @@ struct ProgressView: View {
     private var countryValue = ""
     let defaults = UserDefaults.standard
     let encoder = JSONEncoder()
-     @State private var callIndex = 0
+    @State private var callIndex = 0
     @State private var ActivityIndicator = false
     @State private var showGreeting = true
     @State private var yearSliderBool = false
@@ -157,7 +157,6 @@ struct ProgressView: View {
                   .scrollContentBackground(.hidden)
                   .scrollDisabled(true)
                   .frame(height: 250)
-          
         List{
             Toggle("Hide viewed", isOn: $showGreeting)
                 .toggleStyle(SwitchToggleStyle(tint: .purple))
@@ -207,7 +206,6 @@ struct ProgressView: View {
                }
            })
     }
-    
     private func setFrame(index: Int, frame: CGRect) {
         frames[index] = frame
     }

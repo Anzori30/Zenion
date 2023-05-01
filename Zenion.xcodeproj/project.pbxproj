@@ -308,7 +308,6 @@
 		FA5EC59029F2FADB00751923 /* ChildPages */ = {
 			isa = PBXGroup;
 			children = (
-				FA4F395C29FD9B0700B7CF0A /* Filterpage */,
 				FA0EDC8D29F5B17E0041AF89 /* VideoPLayer */,
 				FA5EC59129F2FAEA00751923 /* DetalPage */,
 			);
@@ -526,6 +525,7 @@
 				FAD1294C29F31C5C003706AE /* YoutubePlayer */,
 				FA772EA129E6E9FD00964048 /* privacy policy */,
 				FA772E8429E6AF5C00964048 /* ActivityIndicator */,
+				FA4F395C29FD9B0700B7CF0A /* Filterpage */,
 				FA6A7A4B29E1C36C00A549D1 /* CustomList */,
 				FA6A7A4A29E1C35C00A549D1 /* button */,
 			);

@@ -30,13 +30,31 @@ class CustomListViewViewModel: ObservableObject {
             if let loadedFilter = try? decoder.decode(filterMovies.self, from: savedFilter) {
                 ishide = true
              filtermovies = []
+
                 for movie in movies {
-                    if movie.star >= loadedFilter.minRating && movie.star
-                        <= loadedFilter.maxRating{
-                        filtermovies.append(movie)
+                    // type all
+                    if loadedFilter.type == 0{
+                        genreFilter(movie: movie, loadedFilter: loadedFilter)
                     }
                     
+                    //type movie
+                    else if loadedFilter.type == 1{
+                        if movie.video.count <= 1 {
+                            genreFilter(movie: movie, loadedFilter: loadedFilter)
+                        }
+                    }
+                    
+                    //type tv show
+                    else{
+                        if movie.video.count > 1{
+                            genreFilter(movie: movie, loadedFilter: loadedFilter)
+                        }
+                    }
+                    
+                    
+                    
                 }
+                
             }
         }
     }
@@ -45,21 +63,77 @@ class CustomListViewViewModel: ObservableObject {
 
         historyMovies = []
         for savedHistory in history {
-            if savedHistory.fullTime <= savedHistory.endTime,
-               let movie = movies.first(where: { $0.name == savedHistory.MovieName }) {
+            if let movie = movies.first(where: { $0.name == savedHistory.MovieName }) {
                 historyMovies.append(movie)
             }
         }
         
-    }}
+    }
+    func genreFilter(movie:movie,loadedFilter:filterMovies){
+        // genre
+        if loadedFilter.genre == "All"{
+            // contry
+            contryFilter(movie: movie, loadedFilter: loadedFilter)
+        }
+        // genre else
+        else{
+            for moviGenre in movie.genre{
+                if moviGenre == loadedFilter.genre{
+                    contryFilter(movie: movie, loadedFilter: loadedFilter)
+                }
+            }
+        }
+    }
 
-//struct filterMovies:Encodable,Decodable{
-//    let type:Int
-//    let genre : [String]
-//    let country :[ String]
-//    let minYear: Int
-//    let maxYear: Int
-//    let minRating: Double
-//    let maxRating: Double
-//    let hideViewing:Bool
-//}
+    func contryFilter(movie:movie,loadedFilter:filterMovies){
+            // contry
+            if loadedFilter.country == "All"{
+                   lastFilter(movie: movie, loadedFilter: loadedFilter)
+            }
+            // contry else
+          else{
+              for movieCantry in movie.location{
+                  if movieCantry == loadedFilter.country{
+                      lastFilter(movie: movie, loadedFilter: loadedFilter)
+                }
+              }
+   
+        }
+    }
+
+
+
+
+    func lastFilter(movie:movie,loadedFilter:filterMovies){
+        //rating
+            if movie.star >= loadedFilter.minRating && movie.star <= loadedFilter.maxRating{
+                //years
+                if movie.years >= loadedFilter.minYear && movie.years <= loadedFilter.maxYear{
+                  //hide viewing
+                    if loadedFilter.hideViewing{
+                        hideViewingFilter(movie: movie, loadedFilter: loadedFilter)
+                    }
+                    else{
+                        filtermovies.append(movie)
+                    }
+               }
+          }
+     }
+    
+    func hideViewingFilter(movie:movie,loadedFilter:filterMovies){
+    
+ 
+        for historyMovie in historyMovies {
+                if movie.name != historyMovie.name{
+                    filtermovies.append(movie)
+                }
+             }
+            
+          
+        
+    }
+    
+    
+}
+
+
