@@ -14,7 +14,7 @@ struct FavoriteView: View {
         NavigationView{
             ZStack{
                 Color("Dark")
-                         .ignoresSafeArea()
+                    .ignoresSafeArea()
               CustomListView(headerText: "Favorite", movies:viewModel.isFavorite, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
             }
         }

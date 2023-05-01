@@ -19,11 +19,11 @@ struct UserView: View {
                 VStack {
                     Spacer()
                 
-                    ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail)
+                    ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail, imageUrl: viewModel.imageUrl)
                     Spacer()
                     UserSclorLIstView(info:
                                         [
-                                            UserPage(destination: AnyView(FavoriteView()), name: "Profile"),
+                                            UserPage(destination: AnyView(ProfilePageView(imageLink: viewModel.imageUrl, name: viewModel.userName, email: viewModel.userEmail)), name: "Profile"),
                                             UserPage(destination: AnyView(FavoriteView()), name: "Subscription"),
                                             UserPage(destination: AnyView(FavoriteView()), name: "Setting"),
                                             UserPage(destination: AnyView(FavoriteView()), name: "Downloads"),

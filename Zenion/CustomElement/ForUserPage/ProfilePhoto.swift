@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
  struct ProfilePhoto: View {
     var name:String
     var email:String
+     var imageUrl:String
     var body: some View {
-        NavigationLink( destination: FavoriteView()){
+        NavigationLink( destination: ProfilePageView(imageLink: imageUrl, name: name, email: email)){
             VStack{
-                Image("test")
+                KFImage(URL(string: imageUrl))
                     .resizable()
                     .frame(width: 130,height: 130)
                     .cornerRadius(100)
