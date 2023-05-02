@@ -18,8 +18,9 @@ struct UserView: View {
                 
                 VStack {
                     Spacer()
-                
-                    ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail, imageUrl: viewModel.imageUrl)
+                    if viewModel.restart{
+                        ProfilePhoto(name: viewModel.userName, email: viewModel.userEmail, imageUrl: viewModel.imageUrl)
+                    }
                     Spacer()
                     UserSclorLIstView(info:
                                         [
@@ -61,6 +62,9 @@ struct UserView: View {
                             .frame(width: 80)
                     }
                 })
+            .onAppear{
+                viewModel.takeLink()
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

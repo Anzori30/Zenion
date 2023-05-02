@@ -20,6 +20,7 @@
 		FA487CE229E4706200FC332C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE129E4706200FC332C /* Info.swift */; };
 		FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE529E4793C00FC332C /* DestinationStart.swift */; };
 		FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA487CE729E47A0C00FC332C /* LaunchScreen.swift */; };
+		FA4C00E12A019350001CDC1B /* ProfilePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C00E02A019350001CDC1B /* ProfilePageViewModel.swift */; };
 		FA4C0E1A29DCDD2B00D035C6 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C0E1929DCDD2B00D035C6 /* ResetPasswordView.swift */; };
 		FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4C0E1E29DCE29800D035C6 /* CreatAccountView.swift */; };
 		FA4C0E2129DCE53700D035C6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA4C0E2029DCE53700D035C6 /* Colors.xcassets */; };
@@ -105,6 +106,7 @@
 		FA487CE129E4706200FC332C /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		FA487CE529E4793C00FC332C /* DestinationStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationStart.swift; sourceTree = "<group>"; };
 		FA487CE729E47A0C00FC332C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		FA4C00E02A019350001CDC1B /* ProfilePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewModel.swift; sourceTree = "<group>"; };
 		FA4C0E1929DCDD2B00D035C6 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		FA4C0E1E29DCE29800D035C6 /* CreatAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatAccountView.swift; sourceTree = "<group>"; };
 		FA4C0E2029DCE53700D035C6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -280,6 +282,14 @@
 			path = DestinationStart;
 			sourceTree = "<group>";
 		};
+		FA4C00DF2A01931B001CDC1B /* ProfilePageViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C00E02A019350001CDC1B /* ProfilePageViewModel.swift */,
+			);
+			path = ProfilePageViewModel;
+			sourceTree = "<group>";
+		};
 		FA4C0E1829DCDD1600D035C6 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				FA57CDDB2A0036C600814CFD /* ProfilePageView.swift */,
+				FA4C00DF2A01931B001CDC1B /* ProfilePageViewModel */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -862,6 +873,7 @@
 				FA8B298F29F3368800A12CE7 /* HomeContents.swift in Sources */,
 				FAD5984429F6F65700C4B4D6 /* DetalPageViewModel.swift in Sources */,
 				FA772EA729E6EC2200964048 /* RegisterModelView.swift in Sources */,
+				FA4C00E12A019350001CDC1B /* ProfilePageViewModel.swift in Sources */,
 				FA222E1D29F03CC8002BC088 /* UserViewModel.swift in Sources */,
 				FAD29A6229DDB20C0009F917 /* userView.swift in Sources */,
 				FA772EA329E6EA0800964048 /* PrivacypPolicyView.swift in Sources */,

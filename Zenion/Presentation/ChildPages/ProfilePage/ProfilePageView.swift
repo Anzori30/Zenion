@@ -7,14 +7,19 @@
 
 import SwiftUI
 import Kingfisher
+import PhotosUI
 struct ProfilePageView: View {
     var imageLink:String
     var name:String
     var email:String
-  @State private var itemSelected = false
+    @StateObject var viewModel = ProfilePageViewModel()
+    @State private var inputImage : UIImage?
+    @State private var showingPicker = false
+    @State private var itemSelected = false
     @State private var showingAlert = false
     @State private var alerttext = "Error"
     var body: some View {
+        
         ZStack{
             Color("light-brown")
                 .ignoresSafeArea()
@@ -28,11 +33,15 @@ struct ProfilePageView: View {
                 .padding([.leading,.trailing],20)
                 Spacer()
             }
-      
             VStack{
                 Divider()
                 List{
-                    ProfilePageListItem(height: 100, mainText: "Edit profile photo", secundText: "", imageLink: imageLink, isturnDown: false, destination:AnyView(EmptyView()), downText: "") { }
+                    ProfilePageListItem(height: 100, mainText: "Edit profile photo", secundText: "", imageLink: viewModel.imageUrl, isturnDown: false, destination:AnyView(EmptyView()), downText: "") {
+                        showingPicker = true
+                    }
+                    .sheet(isPresented: $showingPicker, onDismiss: loadImage){
+                        ImagePicker(image: $inputImage)
+                    }
                 }
                 .foregroundColor(.blue)
                 .background(.clear)
@@ -68,10 +77,69 @@ struct ProfilePageView: View {
             .padding([.bottom])
             .alert(alerttext, isPresented: $showingAlert) {
                         Button("Ok", role: .cancel) { }
-                }
+                
+            }
+        }
+        .onAppear{
+            viewModel.takeLInk()
+        }
+        .overlay(
+           HStack{
+               if viewModel.indicator {
+                   ActivityIndicator(isAnimating: true)
+                       .foregroundColor(.red)
+                       .frame(width: 80)
+               }
+        })
+    }
+    func loadImage(){
+        guard let inputImage1 = inputImage else {
+            print("inputImage is nil")
+            return
+        }
+        print("inputImage is not nil: \(inputImage1)")
+        viewModel.indicator = true
+        PhotoUploader().uploadPhoto( image: inputImage1)
+        PhotoUploader().imageLink()
+    }
+
+}
+
+struct ImagePicker: UIViewControllerRepresentable {
+   
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: ImagePicker
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let uiImage = info[.originalImage] as? UIImage {
+                parent.image = uiImage
+            }
+            parent.presentationMode.wrappedValue.dismiss()
         }
     }
+    
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var image: UIImage?
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
+        
+    }
 }
+
+
 
 struct ProfilePageView_Previews: PreviewProvider {
     static var previews: some View {

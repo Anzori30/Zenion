@@ -9,16 +9,24 @@ import SwiftUI
 
 class UserViewModel:ObservableObject{
     var Movies = [movie]()
-    var imageUrl = "https://scontent.ftbs9-2.fna.fbcdn.net/v/t39.30808-6/313414052_1244872589699573_1129426875842858348_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeFNt0O9g6GLayjav7mSIMTCrsGPhUSfSe-uwY-FRJ9J7_qQxYAtbEYpzUQrJ_cbbn_fulM-5JNjwEfksr1P4oga&_nc_ohc=LS2yP6PY2iEAX-pDUFA&_nc_ht=scontent.ftbs9-2.fna&oh=00_AfAKiTF3RJ2Tvmoev8gep7n26m5dvhN-C-VXRZHA98t3TA&oe=64555DF6"
+    var imageUrl = String()
     @Published var ActivityIndicator = false
     @Published var historyMovies = [movie]()
     var valueToSave = Bool()
     let userName = UserDefaults.standard.string(forKey: "Name") ?? "Unknown"
     let userEmail = UserDefaults.standard.string(forKey: "Email") ?? "Unknown"
     let defaults = UserDefaults.standard
+   @Published var restart = false
     init() {
+        takeLink()
         NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name:Notification.Name("MovieNotification"), object: nil)
+    }
+    func takeLink(){
+        restart = true
+        PhotoUploader().imageLink()
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(_:)), name: Notification.Name("UploadPhoto"), object: nil)
+        print(imageUrl)
     }
     func logOut(){
         ActivityIndicator = true
@@ -44,5 +52,13 @@ class UserViewModel:ObservableObject{
             }
         }
     }
-
+    @objc func uploadPhoto(_ notification: Notification) {
+        imageUrl = ""
+        if let URL = notification.object as? String, !URL.isEmpty {
+              imageUrl = URL
+        }
+        else{
+            imageUrl = "https://firebasestorage.googleapis.com/v0/b/zenion-19e7e.appspot.com/o/images%2FBaseImage%2Fdownload.png?alt=media&token=b9cd0b63-db6b-47b9-9032-6ed037c27b85"
+        }
+    }
 }
