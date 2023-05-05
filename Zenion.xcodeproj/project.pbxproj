@@ -72,6 +72,8 @@
 		FAD5985629F7533C00C4B4D6 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5985529F7533C00C4B4D6 /* Icon.swift */; };
 		FAD7D8DE29FA9DA800E54138 /* HistoryUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */; };
 		FAD7D8E129FAB34100E54138 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8E029FAB34100E54138 /* Player.swift */; };
+		FAEA02322A059B0A00AFED36 /* ProfilePageListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA02312A059B0A00AFED36 /* ProfilePageListItem.swift */; };
+		FAEA02352A059B6200AFED36 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA02342A059B6200AFED36 /* ImagePicker.swift */; };
 		FAEAD9772A0577EF0095E00E /* DestinationV_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAD9762A0577EF0095E00E /* DestinationV_M.swift */; };
 		FAEB5FAC2A056C9A00801795 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FAEB5FAB2A056C9A00801795 /* GoogleSignIn */; };
 		FAEB5FAE2A056C9A00801795 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAEB5FAD2A056C9A00801795 /* GoogleSignInSwift */; };
@@ -150,6 +152,8 @@
 		FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryUpload.swift; sourceTree = "<group>"; };
 		FAD7D8E029FAB34100E54138 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FAEA022E2A05901900AFED36 /* ZenionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenionDebug.entitlements; sourceTree = "<group>"; };
+		FAEA02312A059B0A00AFED36 /* ProfilePageListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageListItem.swift; sourceTree = "<group>"; };
+		FAEA02342A059B6200AFED36 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FAEAD9762A0577EF0095E00E /* DestinationV_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationV_M.swift; sourceTree = "<group>"; };
 		FAEB5FA92A056B8500801795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAEB5FB02A0572F600801795 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -453,10 +457,10 @@
 		FA7A8A8729DCAA0B00C49FCA /* Zenion */ = {
 			isa = PBXGroup;
 			children = (
-				FAEA022E2A05901900AFED36 /* ZenionDebug.entitlements */,
-				FAEB5FAF2A0572E400801795 /* Utilities */,
 				FAEB5FA92A056B8500801795 /* Info.plist */,
+				FAEA022E2A05901900AFED36 /* ZenionDebug.entitlements */,
 				FA7A8AB229DCAA1C00C49FCA /* Application */,
+				FAEB5FAF2A0572E400801795 /* Utilities */,
 				FAD5984529F7056000C4B4D6 /* DataModel */,
 				FA3E479B29EABE5A00D1A93C /* Networking */,
 				FA487CE329E470A100FC332C /* InformationType */,
@@ -534,12 +538,14 @@
 		FA7AECA429DCDADC00DC1ED8 /* CustomElement */ = {
 			isa = PBXGroup;
 			children = (
+				FAEA02332A059B5000AFED36 /* ImagePicker */,
+				FA5EC59629F30DB100751923 /* ForDetalPage */,
+				FAD5984E29F7391700C4B4D6 /* ForUserPage */,
+				FAEA02302A059AFB00AFED36 /* ForProfilePage */,
 				FABFF66329FE70E600B58948 /* RangedSliderView */,
 				FAD7D8DF29FAB32600E54138 /* VideoPLayer */,
-				FAD5984E29F7391700C4B4D6 /* ForUserPage */,
 				FA0EDC8A29F585170041AF89 /* SeriesList */,
 				FA8B298D29F3367B00A12CE7 /* HomeList */,
-				FA5EC59629F30DB100751923 /* ForDetalPage */,
 				FAD1294C29F31C5C003706AE /* YoutubePlayer */,
 				FA772EA129E6E9FD00964048 /* privacy policy */,
 				FA772E8429E6AF5C00964048 /* ActivityIndicator */,
@@ -718,6 +724,22 @@
 			path = DestionationV_M;
 			sourceTree = "<group>";
 		};
+		FAEA02302A059AFB00AFED36 /* ForProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				FAEA02312A059B0A00AFED36 /* ProfilePageListItem.swift */,
+			);
+			path = ForProfilePage;
+			sourceTree = "<group>";
+		};
+		FAEA02332A059B5000AFED36 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				FAEA02342A059B6200AFED36 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		FAEB5FAF2A0572E400801795 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -854,6 +876,7 @@
 				FABFF66B29FEA3B700B58948 /* CustomListViewViewModel.swift in Sources */,
 				FAD5985229F7393A00C4B4D6 /* UserSclorLIstView.swift in Sources */,
 				FAD29A5E29DDB1F00009F917 /* AllMovieView.swift in Sources */,
+				FAEA02352A059B6200AFED36 /* ImagePicker.swift in Sources */,
 				FA487CE829E47A0C00FC332C /* LaunchScreen.swift in Sources */,
 				FA8B298F29F3368800A12CE7 /* HomeContents.swift in Sources */,
 				FAD5984429F6F65700C4B4D6 /* DetalPageViewModel.swift in Sources */,
@@ -894,6 +917,7 @@
 				FA0296B329EEF3E0003D3F2E /* TabViewModel.swift in Sources */,
 				FA5EC59529F2FB1400751923 /* DetalPageView.swift in Sources */,
 				FA772E8629E6AF6400964048 /* ActivityIndicator.swift in Sources */,
+				FAEA02322A059B0A00AFED36 /* ProfilePageListItem.swift in Sources */,
 				FA6585E129DDB8E60057D70C /* TabBarView.swift in Sources */,
 				FA7A8A8929DCAA0B00C49FCA /* ZenionApp.swift in Sources */,
 				FA772E9C29E6DCE900964048 /* ResetPasswordModelView.swift in Sources */,

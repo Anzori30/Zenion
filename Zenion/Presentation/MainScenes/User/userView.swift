@@ -31,9 +31,7 @@ struct UserView: View {
                                             UserPage(destination: AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History")), name: "History"),
                                             UserPage(destination: AnyView(FavoriteView()), name: "Support"),
                                         ])
-        
                     Spacer()
-                    
                     Button(action: {
                         viewModel.logOut()
                     },
@@ -43,7 +41,6 @@ struct UserView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.white)
-                            
                             Text("Log out")
                                 .font(.system(size: 18, weight: .bold, design: .rounded))
                                 .foregroundColor(.white)

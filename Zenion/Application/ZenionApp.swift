@@ -43,7 +43,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 
 struct MyView: View {
-    
     @State private var one = 0
     @State private var destinationStart = false
     @State private var destination = false
@@ -55,7 +54,7 @@ struct MyView: View {
         else{
             if destinationStart {
                    openView
-                    .onAppear {
+                    .onDisappear {
                         NotificationCenter.default.addObserver(forName: NSNotification.Name("LogOut"), object: nil, queue: .main) { notification in
                             withAnimation {
                                 self.destinationStart = false
@@ -63,6 +62,14 @@ struct MyView: View {
                             }
                         }
                     }
+                    .onAppear() {
+                        NotificationCenter.default.addObserver(forName: NSNotification.Name("LogOut"), object: nil, queue: .main) { notification in
+                            withAnimation {
+                        self.destinationStart = false
+                        self.destination = true
+                  }
+                }
+              }
             } else {
                 LaunchScreen()
                     .onAppear {
@@ -85,3 +92,4 @@ struct MyView: View {
         }
     }
 }
+

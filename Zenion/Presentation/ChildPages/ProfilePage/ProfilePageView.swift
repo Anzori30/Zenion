@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Kingfisher
-import PhotosUI
+
 struct ProfilePageView: View {
     var imageLink:String
     var name:String
@@ -18,6 +18,7 @@ struct ProfilePageView: View {
     @State private var itemSelected = false
     @State private var showingAlert = false
     @State private var alerttext = "Error"
+    @State var showDeleteAlert = false
     var body: some View {
         
         ZStack{
@@ -67,17 +68,19 @@ struct ProfilePageView: View {
                     .scrollDisabled(true)
                     .frame(height: 350)
                     Button {
-                        //action
+                        viewModel.deleteAccount()
                     } label: {
                         Text("Dellete account")
                             .foregroundColor(.red)
                     }
                 }
+                .alert(isPresented: $viewModel.showErrorAlert) {
+                    Alert(title: Text("Error"), message: Text(viewModel.errorDescription), dismissButton: .default(Text("OK")))
+                }
             }
             .padding([.bottom])
             .alert(alerttext, isPresented: $showingAlert) {
                         Button("Ok", role: .cancel) { }
-                
             }
         }
         .onAppear{
@@ -104,111 +107,9 @@ struct ProfilePageView: View {
     }
 
 }
-
-struct ImagePicker: UIViewControllerRepresentable {
-   
-    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        let parent: ImagePicker
-        init(_ parent: ImagePicker) {
-            self.parent = parent
-        }
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let uiImage = info[.originalImage] as? UIImage {
-                parent.image = uiImage
-            }
-            parent.presentationMode.wrappedValue.dismiss()
-        }
-    }
-    
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var image: UIImage?
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-    
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
-        let picker = UIImagePickerController()
-        picker.delegate = context.coordinator
-        return picker
-    }
-    
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
-        
-    }
-}
-
-
-
 struct ProfilePageView_Previews: PreviewProvider {
     static var previews: some View {
         ProfilePageView(imageLink: "test", name: "dfsf", email: "sdas")
     }
 }
-fileprivate struct ProfilePageListItem: View {
-  @State var height:Int
-    var mainText:String
-    var secundText:String
-    var imageLink:String
-    var isturnDown:Bool
-    var destination:AnyView
-    var downText:String
-    let action: () -> Void
-    @State private var buttonArrow = "chevron.right"
-    @State private var seeMore = false
-    var body: some View {
-               Button {
-                   if isturnDown{
-                       withAnimation(.easeInOut(duration: 0.2)){
-                           seeMore.toggle()
-                       }
-                       if seeMore{
-                           buttonArrow = "chevron.up"
-                       }
-                       else{
-                           buttonArrow = "chevron.right"
-                       }
-                   }
-                    action()
-                        } label: {
-                            VStack{
-                                HStack{
-                                    Text(mainText)
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 18, weight: .bold, design: .rounded))
-                                    
-                                    Spacer()
-                                    Text(secundText)
-                                        .foregroundColor(.gray)
-                                        .font(.system(size: 14, weight: .bold, design: .rounded))
-                                    if imageLink != ""{
-                                        KFImage(URL(string: imageLink))
-                                          .resizable()
-                                            .frame(width: 60,height: 60)
-                                            .cornerRadius(100)
-                                    }
-                                    Image(systemName: buttonArrow)
-                                        .frame(width: 20,height: 60)
-                                        .foregroundColor(.indigo)
-                                }
-                            }
-                            
-                        }
-                        .listRowSeparatorTint(Color("light-brown"))
-                    .listRowBackground(Color("Gray"))
-                   .frame(height: CGFloat(height))
-        
-            if seeMore{
-            NavigationLink(destination: destination){
-                VStack{
-                    Text(downText)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))}
-                   .foregroundColor(.white)
-            }
-            .listRowBackground(Color("Gray"))
-            .frame(height: 40)
-        }
-        
-    }
-}
+
