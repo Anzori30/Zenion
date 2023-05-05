@@ -23,8 +23,7 @@ class ProfilePageViewModel: ObservableObject {
         imageUrl = ""
         if let URL = notification.object as? String, !URL.isEmpty {
               imageUrl = URL
-            print(imageUrl)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+           DispatchQueue.main.asyncAfter(deadline: .now() + 4){
                 self.indicator = false
             }
         }

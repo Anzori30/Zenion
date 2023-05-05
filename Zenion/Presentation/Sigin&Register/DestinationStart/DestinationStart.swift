@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DestinationStart: View{
+    @StateObject var viewModel = DestinationV_M()
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,9 +23,16 @@ struct DestinationStart: View{
                         .foregroundColor(.white)
                     Spacer()
                     VStack {
-                        CustomRegisterButton(imageName:"Ios-icon", text: "Continue with Apple", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: true){ }
+                       
+                        CustomRegisterButton(imageName:"Ios-icon", text: "Continue with Apple", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: false){
+                            viewModel.appleAuth()
+                        }
                         Divider()
-                        CustomRegisterButton(imageName:"google-icon", text:"Continue with Google", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: true){ }
+                        NavigationLink(destination: TabBarView(), isActive: $viewModel.isGoogleSignIn){
+                            CustomRegisterButton(imageName:"google-icon", text:"Continue with Google", color: .clear, imageWidth: 20, imageHeight: 20,destination: TabBarView(),navigate: false){
+                                viewModel.googleAuth()
+                            }
+                        }
                         Divider()
                         HStack {
                             Text("")

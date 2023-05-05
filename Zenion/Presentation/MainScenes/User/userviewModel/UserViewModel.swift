@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-
+import Firebase
+import GoogleSignIn
 class UserViewModel:ObservableObject{
+    let firebaseAuth = Auth.auth()
     var Movies = [movie]()
     var imageUrl = String()
     @Published var ActivityIndicator = false
@@ -26,15 +28,20 @@ class UserViewModel:ObservableObject{
         restart = true
         PhotoUploader().imageLink()
         NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(_:)), name: Notification.Name("UploadPhoto"), object: nil)
-        print(imageUrl)
     }
     func logOut(){
         ActivityIndicator = true
         self.valueToSave = false
         self.defaults.set(self.valueToSave, forKey: "isLogined")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        do {
+          try firebaseAuth.signOut()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             NotificationCenter.default.post(name: NSNotification.Name("LogOut"), object: nil)
+          }
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
         }
+        
     }    // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {

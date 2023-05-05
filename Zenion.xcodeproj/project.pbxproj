@@ -42,8 +42,6 @@
 		FA7A8A8D29DCAA0C00C49FCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8C29DCAA0C00C49FCA /* Assets.xcassets */; };
 		FA7A8A9029DCAA0C00C49FCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7A8A8F29DCAA0C00C49FCA /* Preview Assets.xcassets */; };
 		FA7A8A9A29DCAA0C00C49FCA /* ZenionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A8A9929DCAA0C00C49FCA /* ZenionTests.swift */; };
-		FA7A8AA429DCAA0C00C49FCA /* ZenionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A8AA329DCAA0C00C49FCA /* ZenionUITests.swift */; };
-		FA7A8AA629DCAA0C00C49FCA /* ZenionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A8AA529DCAA0C00C49FCA /* ZenionUITestsLaunchTests.swift */; };
 		FA7AEC9E29DCC81B00DC1ED8 /* SiginWithPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AEC9D29DCC81B00DC1ED8 /* SiginWithPasswordView.swift */; };
 		FA7AECA629DCDAEF00DC1ED8 /* CustomRegisterButtom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AECA529DCDAEF00DC1ED8 /* CustomRegisterButtom.swift */; };
 		FA8B298F29F3368800A12CE7 /* HomeContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8B298E29F3368800A12CE7 /* HomeContents.swift */; };
@@ -74,17 +72,14 @@
 		FAD5985629F7533C00C4B4D6 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5985529F7533C00C4B4D6 /* Icon.swift */; };
 		FAD7D8DE29FA9DA800E54138 /* HistoryUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */; };
 		FAD7D8E129FAB34100E54138 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD7D8E029FAB34100E54138 /* Player.swift */; };
+		FAEAD9772A0577EF0095E00E /* DestinationV_M.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEAD9762A0577EF0095E00E /* DestinationV_M.swift */; };
+		FAEB5FAC2A056C9A00801795 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FAEB5FAB2A056C9A00801795 /* GoogleSignIn */; };
+		FAEB5FAE2A056C9A00801795 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAEB5FAD2A056C9A00801795 /* GoogleSignInSwift */; };
+		FAEB5FB12A0572F600801795 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB5FB02A0572F600801795 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		FA7A8A9629DCAA0C00C49FCA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA7A8A7D29DCAA0B00C49FCA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA7A8A8429DCAA0B00C49FCA;
-			remoteInfo = Zenion;
-		};
-		FA7A8AA029DCAA0C00C49FCA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA7A8A7D29DCAA0B00C49FCA /* Project object */;
 			proxyType = 1;
@@ -130,7 +125,6 @@
 		FA7A8A8F29DCAA0C00C49FCA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FA7A8A9529DCAA0C00C49FCA /* ZenionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7A8A9929DCAA0C00C49FCA /* ZenionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenionTests.swift; sourceTree = "<group>"; };
-		FA7A8A9F29DCAA0C00C49FCA /* ZenionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZenionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7A8AA329DCAA0C00C49FCA /* ZenionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenionUITests.swift; sourceTree = "<group>"; };
 		FA7A8AA529DCAA0C00C49FCA /* ZenionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FA7AEC9D29DCC81B00DC1ED8 /* SiginWithPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiginWithPasswordView.swift; sourceTree = "<group>"; };
@@ -155,6 +149,10 @@
 		FAD5985529F7533C00C4B4D6 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		FAD7D8DD29FA9DA800E54138 /* HistoryUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryUpload.swift; sourceTree = "<group>"; };
 		FAD7D8E029FAB34100E54138 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		FAEA022E2A05901900AFED36 /* ZenionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenionDebug.entitlements; sourceTree = "<group>"; };
+		FAEAD9762A0577EF0095E00E /* DestinationV_M.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationV_M.swift; sourceTree = "<group>"; };
+		FAEB5FA92A056B8500801795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FAEB5FB02A0572F600801795 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,21 +165,16 @@
 				FAD1294829F31819003706AE /* FirebaseStorage in Frameworks */,
 				FA21E68C29EDD34D0081285B /* Kingfisher in Frameworks */,
 				FAD1293C29F31819003706AE /* FirebaseAnalytics in Frameworks */,
+				FAEB5FAC2A056C9A00801795 /* GoogleSignIn in Frameworks */,
 				FAD1293E29F31819003706AE /* FirebaseAuth in Frameworks */,
 				FAD1294429F31819003706AE /* FirebaseFirestore in Frameworks */,
 				FAD1294629F31819003706AE /* FirebaseFirestoreSwift in Frameworks */,
 				FAD1294B29F31AFB003706AE /* YouTubeiOSPlayerHelper in Frameworks */,
+				FAEB5FAE2A056C9A00801795 /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FA7A8A9229DCAA0C00C49FCA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA7A8A9C29DCAA0C00C49FCA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				FA487CE529E4793C00FC332C /* DestinationStart.swift */,
+				FAEA022F2A05925400AFED36 /* DestionationV_M */,
 			);
 			path = DestinationStart;
 			sourceTree = "<group>";
@@ -452,7 +446,6 @@
 			children = (
 				FA7A8A8529DCAA0B00C49FCA /* Zenion.app */,
 				FA7A8A9529DCAA0C00C49FCA /* ZenionTests.xctest */,
-				FA7A8A9F29DCAA0C00C49FCA /* ZenionUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -460,6 +453,9 @@
 		FA7A8A8729DCAA0B00C49FCA /* Zenion */ = {
 			isa = PBXGroup;
 			children = (
+				FAEA022E2A05901900AFED36 /* ZenionDebug.entitlements */,
+				FAEB5FAF2A0572E400801795 /* Utilities */,
+				FAEB5FA92A056B8500801795 /* Info.plist */,
 				FA7A8AB229DCAA1C00C49FCA /* Application */,
 				FAD5984529F7056000C4B4D6 /* DataModel */,
 				FA3E479B29EABE5A00D1A93C /* Networking */,
@@ -714,6 +710,22 @@
 			path = VideoPLayer;
 			sourceTree = "<group>";
 		};
+		FAEA022F2A05925400AFED36 /* DestionationV_M */ = {
+			isa = PBXGroup;
+			children = (
+				FAEAD9762A0577EF0095E00E /* DestinationV_M.swift */,
+			);
+			path = DestionationV_M;
+			sourceTree = "<group>";
+		};
+		FAEB5FAF2A0572E400801795 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB5FB02A0572F600801795 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -740,6 +752,8 @@
 				FAD1294529F31819003706AE /* FirebaseFirestoreSwift */,
 				FAD1294729F31819003706AE /* FirebaseStorage */,
 				FAD1294A29F31AFB003706AE /* YouTubeiOSPlayerHelper */,
+				FAEB5FAB2A056C9A00801795 /* GoogleSignIn */,
+				FAEB5FAD2A056C9A00801795 /* GoogleSignInSwift */,
 			);
 			productName = Zenion;
 			productReference = FA7A8A8529DCAA0B00C49FCA /* Zenion.app */;
@@ -763,24 +777,6 @@
 			productReference = FA7A8A9529DCAA0C00C49FCA /* ZenionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FA7A8A9E29DCAA0C00C49FCA /* ZenionUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA7A8AAF29DCAA0C00C49FCA /* Build configuration list for PBXNativeTarget "ZenionUITests" */;
-			buildPhases = (
-				FA7A8A9B29DCAA0C00C49FCA /* Sources */,
-				FA7A8A9C29DCAA0C00C49FCA /* Frameworks */,
-				FA7A8A9D29DCAA0C00C49FCA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FA7A8AA129DCAA0C00C49FCA /* PBXTargetDependency */,
-			);
-			name = ZenionUITests;
-			productName = ZenionUITests;
-			productReference = FA7A8A9F29DCAA0C00C49FCA /* ZenionUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -795,10 +791,6 @@
 						CreatedOnToolsVersion = 14.2;
 					};
 					FA7A8A9429DCAA0C00C49FCA = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = FA7A8A8429DCAA0B00C49FCA;
-					};
-					FA7A8A9E29DCAA0C00C49FCA = {
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = FA7A8A8429DCAA0B00C49FCA;
 					};
@@ -817,6 +809,7 @@
 				FA21E68A29EDD34D0081285B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAD1293A29F31819003706AE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FAD1294929F31AFB003706AE /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				FAEB5FAA2A056C9A00801795 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = FA7A8A8629DCAA0B00C49FCA /* Products */;
 			projectDirPath = "";
@@ -824,7 +817,6 @@
 			targets = (
 				FA7A8A8429DCAA0B00C49FCA /* Zenion */,
 				FA7A8A9429DCAA0C00C49FCA /* ZenionTests */,
-				FA7A8A9E29DCAA0C00C49FCA /* ZenionUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -842,13 +834,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FA7A8A9329DCAA0C00C49FCA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FA7A8A9D29DCAA0C00C49FCA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -885,6 +870,7 @@
 				FA6A7A4F29E1C38E00A549D1 /* CustomListView.swift in Sources */,
 				FA0296B129EEE8A2003D3F2E /* AllModelView.swift in Sources */,
 				FA7AEC9E29DCC81B00DC1ED8 /* SiginWithPasswordView.swift in Sources */,
+				FAEAD9772A0577EF0095E00E /* DestinationV_M.swift in Sources */,
 				FA4C0E1A29DCDD2B00D035C6 /* ResetPasswordView.swift in Sources */,
 				FAD5984829F7057E00C4B4D6 /* MovieModel.xcdatamodeld in Sources */,
 				FAD29A5C29DDB1E20009F917 /* SearchView.swift in Sources */,
@@ -892,6 +878,7 @@
 				FA77B8E329F0109000B8317C /* PhotoUploader.swift in Sources */,
 				FA4C0E1F29DCE29800D035C6 /* CreatAccountView.swift in Sources */,
 				FA3E479F29EADF1C00D1A93C /* HomeModelView.swift in Sources */,
+				FAEB5FB12A0572F600801795 /* Utilities.swift in Sources */,
 				FA487CE629E4793C00FC332C /* DestinationStart.swift in Sources */,
 				FAD5985429F7396300C4B4D6 /* ProfilePhoto.swift in Sources */,
 				FA57CDDC2A0036C600814CFD /* ProfilePageView.swift in Sources */,
@@ -924,15 +911,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA7A8A9B29DCAA0C00C49FCA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA7A8AA429DCAA0C00C49FCA /* ZenionUITests.swift in Sources */,
-				FA7A8AA629DCAA0C00C49FCA /* ZenionUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -940,11 +918,6 @@
 			isa = PBXTargetDependency;
 			target = FA7A8A8429DCAA0B00C49FCA /* Zenion */;
 			targetProxy = FA7A8A9629DCAA0C00C49FCA /* PBXContainerItemProxy */;
-		};
-		FA7A8AA129DCAA0C00C49FCA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA7A8A8429DCAA0B00C49FCA /* Zenion */;
-			targetProxy = FA7A8AA029DCAA0C00C49FCA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1068,12 +1041,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Zenion/ZenionDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zenion/Preview Content\"";
 				DEVELOPMENT_TEAM = 4V72AN9226;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Zenion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1102,6 +1077,7 @@
 				DEVELOPMENT_TEAM = 4V72AN9226;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Zenion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1159,42 +1135,6 @@
 			};
 			name = Release;
 		};
-		FA7A8AB029DCAA0C00C49FCA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4V72AN9226;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anzori-kizikelashvili.ZenionUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Zenion;
-			};
-			name = Debug;
-		};
-		FA7A8AB129DCAA0C00C49FCA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4V72AN9226;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Anzori-kizikelashvili.ZenionUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Zenion;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1225,15 +1165,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA7A8AAF29DCAA0C00C49FCA /* Build configuration list for PBXNativeTarget "ZenionUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA7A8AB029DCAA0C00C49FCA /* Debug */,
-				FA7A8AB129DCAA0C00C49FCA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -1259,6 +1190,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		FAEB5FAA2A056C9A00801795 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1308,6 +1247,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FAD1294929F31AFB003706AE /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
 			productName = YouTubeiOSPlayerHelper;
+		};
+		FAEB5FAB2A056C9A00801795 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEB5FAA2A056C9A00801795 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		FAEB5FAD2A056C9A00801795 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAEB5FAA2A056C9A00801795 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
