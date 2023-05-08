@@ -23,8 +23,6 @@ struct CustomButton: View {
             .font(.system(size: 17, weight: .bold, design: .rounded))
             .frame(width: Width, height: Height)
         })
-           
-          
           .foregroundColor(.white)
           .background(color)
           .multilineTextAlignment(.center)

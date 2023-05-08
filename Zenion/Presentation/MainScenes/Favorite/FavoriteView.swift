@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FavoriteView: View {
-  
     @StateObject var viewModel = FavoriteViewModel()
     var body: some View {
         NavigationView{
@@ -23,9 +22,7 @@ struct FavoriteView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-        
 }
-
 struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {
         FavoriteView()

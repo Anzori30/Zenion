@@ -11,13 +11,11 @@ import FirebaseFirestore
 class HistoryUpload: ObservableObject {
     var History = [SaveHistory]()
     let db = Firestore.firestore()
-
     func saveHistoryToFirestore(history: SaveHistory) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")
             return
         }
-
         let docRef = db.collection("users").document(uid).collection("History").document(history.MovieName)
         docRef.setData([
             "movieName": history.MovieName,
@@ -31,7 +29,6 @@ class HistoryUpload: ObservableObject {
             }
         }
     }
-
     func printAllHistory() {
         self.History = []
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -54,7 +51,6 @@ class HistoryUpload: ObservableObject {
             }
         }
     }
-
     func removeHistory(movieNames: [String]) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")

@@ -11,24 +11,19 @@ import YouTubeiOSPlayerHelper
 struct YouTubePlayerView: UIViewRepresentable {
     let playerView = YTPlayerView()
     var videoLink: String
-
     func makeUIView(context: UIViewRepresentableContext<YouTubePlayerView>) -> YTPlayerView {
         return playerView
     }
-
     func updateUIView(_ uiView: YTPlayerView, context: UIViewRepresentableContext<YouTubePlayerView>) {
     }
-
     func playVideo() {
         let videoId = videoLink.youtubeID
         playerView.load(withVideoId: videoId)
     }
-
     static func dismantleUIView(_ uiView: YTPlayerView, coordinator: ()) {
         uiView.stopVideo()
     }
 }
-
 extension String {
     var youtubeID: String {
         let regexString = #"(?<=v=|v\/|vi=|vi\/|youtu\.be\/|\/embed\/)([^#\&\?\n]+)"#

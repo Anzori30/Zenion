@@ -73,7 +73,6 @@ struct CreatAccountView: View {
                             viewModel.activityIndicator = false
                         }
                     }
-               
                 }
                 Spacer()
                 PrivacypPolicyView()
@@ -87,8 +86,7 @@ struct CreatAccountView: View {
                     .foregroundColor(.red)
                     .frame(width: 80)
                }
-            })
-
+        })
     }
 }
 

@@ -44,8 +44,7 @@ struct ProfilePageListItem: View {
                                         .foregroundColor(.gray)
                                         .font(.system(size: 14, weight: .bold, design: .rounded))
                                     if imageLink != ""{
-                                        KFImage(URL(string: imageLink))
-                                          .resizable()
+                                        ShimerAnimation(url: imageLink)
                                             .frame(width: 60,height: 60)
                                             .cornerRadius(100)
                                     }

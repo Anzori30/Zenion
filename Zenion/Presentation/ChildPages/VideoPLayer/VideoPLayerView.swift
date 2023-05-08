@@ -54,15 +54,12 @@ struct VideoPlayerView: View {
                     HistoryUpload().removeHistory(movieNames: [movieName])
                     HistoryUpload().saveHistoryToFirestore(history: SaveHistory(MovieName: movieName, fullTime: fullTime, endTime: endTimes - 900 ))
                 }
-                
-                
                 player.replaceCurrentItem(with: nil)
                 observers.removeAll()
             }
         }
     }
 }
-
 struct VideoPlayerView_Previews: PreviewProvider {
     static var previews: some View {
         VideoPlayerView(movieName: "", videoLink: "https://example.com/video.mp4")

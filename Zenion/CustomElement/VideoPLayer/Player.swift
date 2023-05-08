@@ -21,7 +21,6 @@ struct Player: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
-    
     class Coordinator: NSObject {
         let parent: Player
         
@@ -30,13 +29,11 @@ struct Player: UIViewControllerRepresentable {
             super.init()
                     NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: parent.player.currentItem)
         }
-        
         deinit {
             NotificationCenter.default.removeObserver(self)
         }
-        
         @objc func playerDidFinishPlaying(_ note: NSNotification) {
-           
+           //
         }
     }
 }

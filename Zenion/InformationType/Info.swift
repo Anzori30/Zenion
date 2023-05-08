@@ -7,10 +7,11 @@
 //
 
 import SwiftUI
-
 struct UserPage {
-    var destination: AnyView
-    var name: String
+    let destination: AnyView
+    let name: String
+    let navigationDisabled : Bool
+    let action: () -> Void
 }
 struct MovieVideo:Hashable{
     let name: String
@@ -48,7 +49,6 @@ struct movie: Hashable, Equatable {
     let actors: [String]
     var favorite: Bool
     var years: Int
-    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(photo)
@@ -63,7 +63,5 @@ struct movie: Hashable, Equatable {
         hasher.combine(years)
         hasher.combine(trailer)
     }
-    
-  
 }
 

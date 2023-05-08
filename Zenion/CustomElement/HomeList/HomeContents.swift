@@ -32,8 +32,7 @@ struct HomeContents: View {
                         ForEach(movies, id: \.self) { movie in
                             NavigationLink(destination: DetalPageView(movies: movie) ){
                                 VStack{
-                                    KFImage(URL(string: movie.photo))
-                                        .resizable()
+                                    ShimerAnimation(url: movie.photo)
                                         .frame(width: width, height:height - 50)
                                         .cornerRadius(30)
                                     Text(movie.name)

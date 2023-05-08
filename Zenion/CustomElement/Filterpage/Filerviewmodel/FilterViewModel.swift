@@ -10,9 +10,8 @@ import SwiftUI
 class FilterViewModel: ObservableObject {
     var filtermovies = [movie]()
     var yearsliderPosition: ClosedRange<Float> = 1800...2023
-  @Published  var genre = [String]()
- @Published  var country = [String]()
-
+    @Published  var genre = [String]()
+   @Published  var country = [String]()
     init() {
         startFilter()
         FirebaseDatabaseInfo().startHTTP()
@@ -36,7 +35,6 @@ class FilterViewModel: ObservableObject {
                     }
                 }
             }
-          
         }
     }
     var type = Int()
@@ -64,8 +62,5 @@ class FilterViewModel: ObservableObject {
             }
         }
     }
-    
-
-    
 }
 

@@ -4,14 +4,10 @@
 //
 //  Created by macbook on 12.04.23.
 //
-
 import SwiftUI
-
 struct ActivityIndicator: View {
      var isAnimating: Bool
-      
       @State private var animating: Bool = false
-    
     var body: some View {
         if isAnimating || animating {
             GeometryReader { (geometry: GeometryProxy) in
@@ -32,11 +28,9 @@ struct ActivityIndicator: View {
             }
         }
     }
-    
     func calcScale(index: Int) -> CGFloat {
         return (!animating ? 1 - CGFloat(Float(index)) / 5 : 0.2 + CGFloat(index) / 5)
     }
-    
     func calcYOffset(_ geometry: GeometryProxy) -> CGFloat {
         return geometry.size.width / 10 - geometry.size.height / 2
     }

@@ -12,7 +12,6 @@ struct MovieSerieList: View {
     var movies: MovieVideo
     let width: CGFloat
     let height: CGFloat
-    
     var body: some View {
         VStack {
             HStack {
@@ -22,14 +21,12 @@ struct MovieSerieList: View {
                     .padding([.leading], 20)
                 Spacer()
             }
-            
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(Array(movies.video.enumerated()), id: \.element) { index, video in
                         NavigationLink(destination: VideoPlayerView(movieName: movies.name, videoLink: movies.video[index])) {
                             VStack {
-                                KFImage(URL(string: movies.photo))
-                                    .resizable()
+                                ShimerAnimation(url: movies.photo)
                                     .frame(width: width, height: height - 50)
                                     .cornerRadius(30)
                                 Text("S\(index + 1)")

@@ -3,9 +3,6 @@
 //  Zenion
 //
 //  Created by macbook on 25.04.23.
-//
-
-
 
 import Firebase
 import FirebaseDatabase
@@ -22,7 +19,6 @@ class Uploadfavorite: ObservableObject {
             let docRef = db.collection("users").document(uid).collection("favorites").document(movieName)
             docRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-//                    print("Favorite with name \(movieName) already exists, skipping...")
                 } else {
                     self.db.collection("users").document(uid).collection("favorites").document(movieName).setData([
                         "movieName": movieName
@@ -30,14 +26,13 @@ class Uploadfavorite: ObservableObject {
                         if let err = err {
                             print("Error adding favorite: \(err)")
                         } else {
-//                            print("Favorite added with name: \(movieName)")
+//                            print(" \(movieName)")
                         }
                     }
                 }
             }
         }
     }
-    
     func printAllFavorites() {
         self.movieNames = []
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -58,7 +53,6 @@ class Uploadfavorite: ObservableObject {
             }
         }
     }
-    
     func removeFavorites(movieNames: [String]) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")

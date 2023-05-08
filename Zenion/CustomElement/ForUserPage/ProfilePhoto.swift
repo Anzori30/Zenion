@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shimmer
 import Kingfisher
  struct ProfilePhoto: View {
     var name:String
@@ -14,8 +15,9 @@ import Kingfisher
     var body: some View {
         NavigationLink( destination: ProfilePageView(imageLink: imageUrl, name: name, email: email)){
             VStack{
-                KFImage(URL(string: imageUrl))
-                    .resizable()
+                ShimerAnimation(url: imageUrl)
+                    .redacted(reason: imageUrl.isEmpty ? .placeholder : .init())
+                    .shimmering(active: imageUrl.isEmpty)
                     .frame(width: 130,height: 130)
                     .cornerRadius(100)
                 Text(name)

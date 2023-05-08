@@ -21,8 +21,7 @@ struct HomeimageTableView: View {
                 LazyHStack(spacing: 20) {
                     ForEach(movies.indices, id: \.self) { index in
                         NavigationLink(destination: DetalPageView(movies: movies[index])) {
-                            KFImage(URL(string: movies[index ].photo))
-                                .resizable()
+                            ShimerAnimation(url: movies[index].photo)
                                 .frame(width: CGFloat(height) * 0.9, height: CGFloat(height))
                                 .cornerRadius(20)
                                 .shadow(radius: 5)
@@ -40,8 +39,7 @@ struct HomeimageTableView: View {
           }
             .background(
                 HStack {
-                    KFImage(URL(string: selectedMovie?.photo ?? ""))
-                        .resizable()
+                    ShimerAnimation(url: selectedMovie?.photo ?? "")
                         .frame(width: UIScreen.main.bounds.width + 20 , height: UIScreen.main.bounds.height * 0.9)
                         .scaledToFill()
                         .blur(radius: 10)

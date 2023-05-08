@@ -10,16 +10,20 @@ class HomeModelView: ObservableObject {
     var Homemovies = [movie]()
     var trailer = [movie]()
     var topMovie = [movie]()
+    var banerMovies = [movie]()
     @Published  var historyMovies = [movie]()
     @Published var showMovies = false
     @Published var isTake = Bool()
     @Published var ActivityIndicator = true
 //    @Published var movieNames = [String]()
     init() {
-        FirebaseDatabaseInfo().startHTTP()
         Uploadfavorite().printAllFavorites()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
+       takeMovie()
         NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
+    }
+    func takeMovie(){
+        FirebaseDatabaseInfo().startHTTP()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
     }
     // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
@@ -28,6 +32,7 @@ class HomeModelView: ObservableObject {
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false
+            banerFilters()
             trailerFilter()
             top()
         }
@@ -51,6 +56,17 @@ class HomeModelView: ObservableObject {
             }
         }
         topMovie = Array(uniqueTrailers)
+    }
+    func banerFilters(){
+        var counter = 0
+            var uniqueTrailers = Set<movie>()
+            for item in Homemovies {
+                if item.star > 5.0 && item.photo != "" && counter <= 6{
+                    uniqueTrailers.insert(item)
+                    counter += 1
+                }
+            }
+            banerMovies = Array(uniqueTrailers)
     }
     // history
     @objc func MovieNotification(_ notification: Notification) {

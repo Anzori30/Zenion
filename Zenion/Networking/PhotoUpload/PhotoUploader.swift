@@ -13,17 +13,14 @@ class PhotoUploader: ObservableObject {
     let db = Firestore.firestore()
     let storage = Storage.storage()
     var documentId: String?
-
     func uploadPhoto(image: UIImage) {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")
             return
         }
-
         let docRef = db.collection("users").document(uid).collection("Userimage").document("link")
         let imageData = image.jpegData(compressionQuality: 0.5)!
         let storageRef = storage.reference().child("images/\(uid).jpg")
-
         storageRef.putData(imageData, metadata: nil) { metadata, error in
             if let error = error {
                 print("Error uploading image: \(error.localizedDescription)")
@@ -39,7 +36,6 @@ class PhotoUploader: ObservableObject {
                             if let error = error {
                                 print("Error saving history: \(error)")
                             } else {
-                                print("Image saved successfully")
                                 self.documentId = docRef.documentID
                                 self.imageLink()
                             }
@@ -49,7 +45,6 @@ class PhotoUploader: ObservableObject {
             }
         }
     }
-
     func imageLink() {
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")

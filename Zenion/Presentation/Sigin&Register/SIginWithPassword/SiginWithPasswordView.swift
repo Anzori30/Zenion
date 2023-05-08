@@ -16,20 +16,15 @@ struct SignInWithPasswordView: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            
             VStack {
                 Spacer()
-                
                 Image("logo")
                     .resizable()
                     .frame(width: 40, height: 40)
-                
                 Text("Z E N I O N")
                     .font(.system(size: 20, weight: .bold, design: .rounded))
                     .foregroundColor(.white)
-                
                 Divider()
-                
                 VStack {
                     TextField("", text: $userName, prompt: Text("UserName").foregroundColor(.gray))
                         .frame(height: 15)
@@ -88,7 +83,7 @@ struct SignInWithPasswordView: View {
                        ActivityIndicator(isAnimating: true)
                         .foregroundColor(.red)
                         .frame(width: 80)
-                   }
+                }
             })
         }
     }

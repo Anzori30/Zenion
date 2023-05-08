@@ -10,19 +10,15 @@ import SwiftUI
 struct RangedSliderView: View {
     let currentValue: Binding<ClosedRange<Float>>
     let sliderBounds: ClosedRange<Int>
-    
     public init(value: Binding<ClosedRange<Float>>, bounds: ClosedRange<Int>) {
         self.currentValue = value
         self.sliderBounds = bounds
     }
-    
     var body: some View {
         GeometryReader { geomentry in
             sliderView(sliderSize: geomentry.size)
         }
     }
-    
-        
     @ViewBuilder private func sliderView(sliderSize: CGSize) -> some View {
         let sliderViewYCenter = sliderSize.height / 2
         ZStack {
@@ -59,19 +55,17 @@ struct RangedSliderView: View {
                         newValue = min(newValue, Float(sliderBounds.upperBound))
                         if newValue > currentValue.wrappedValue.lowerBound {
                             currentValue.wrappedValue = currentValue.wrappedValue.lowerBound...newValue
-                        }
-                    })
+                    }
+                })
             }
         }
     }
-
     @ViewBuilder func lineBetweenThumbs(from: CGPoint, to: CGPoint) -> some View {
         Path { path in
             path.move(to: from)
             path.addLine(to: to)
         }.stroke(Color.purple, lineWidth: 4)
     }
-    
     @ViewBuilder func thumbView(position: CGPoint, value: Float) -> some View {
         ZStack {
             Text(String(Int(value)))
@@ -83,6 +77,5 @@ struct RangedSliderView: View {
                 .contentShape(Rectangle())
         }
         .position(x: position.x, y: position.y)
-       
     }
 }

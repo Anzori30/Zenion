@@ -10,20 +10,15 @@ import Firebase
 import GoogleSignIn
 @main
 struct MyApp: App {
-//   @StateObject private var dataController = DataController()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let isUserLogginedIn = UserDefaults.standard.bool(forKey: "isLogined")
-
-    
     var body: some Scene {
         WindowGroup {
             if isUserLogginedIn{
                  MyView(openView: AnyView(TabBarView()))
-//                    .environment(\.managedObjectContext, dataController.container.viewContext)
             }
             else{
                 MyView(openView: AnyView(DestinationStart()))
-//                    .environment(\.managedObjectContext, dataController.container.viewContext)
             }
         }
     }

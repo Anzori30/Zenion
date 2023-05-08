@@ -21,7 +21,7 @@ struct HomeView: View {
                     VStack(spacing: 50) {
                         if viewModel.showMovies {
                             
-                            HomeimageTableView(movies: viewModel.Homemovies, height:Int(width) )
+                            HomeimageTableView(movies: viewModel.banerMovies, height:Int(width) )
                             if !viewModel.historyMovies.isEmpty{
                               HomeContents(headerText: "Continue viewing", movies:viewModel.historyMovies,width: width / 2.0 ,height :height / 3.6 )
                             }
@@ -43,6 +43,7 @@ struct HomeView: View {
                }
            })
         .onAppear{
+            viewModel.takeMovie()
             Uploadfavorite().printAllFavorites()
         }
         .navigationViewStyle(StackNavigationViewStyle())

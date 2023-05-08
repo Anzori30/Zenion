@@ -44,9 +44,6 @@ struct DetalPageView_Previews: PreviewProvider {
     }
 }
 
-
-
-
 /// Mark menu
 fileprivate struct menu: View {
     var width:CGFloat
@@ -58,8 +55,7 @@ fileprivate struct menu: View {
     @State private var hiideSeries = true
     var body: some View {
         ZStack{
-            KFImage(URL(string: movies.photo))
-                          .resizable()
+            ShimerAnimation(url: movies.photo)
                           .frame(width: width ,height: height/2)
                       LinearGradient(
                           gradient: Gradient(colors: [Color.clear, Color("Dark")]),
@@ -117,12 +113,8 @@ fileprivate struct menu: View {
                     }
                     Uploadfavorite().printAllFavorites()
                 })
-                Icon(imageName: download, spacer: false, height: 25, action: {
-                    guard download == "arrow.down.to.line" else {
-                        download = "arrow.down.to.line"
-                        return
-                    }
-                    download = "arrow.down.square"
+                Icon(imageName: "arrowshape.turn.up.right.fill" , spacer: false, height: 20, action: {
+                    viewModel.shareItem(movie: movies)
                 })
             }
             
@@ -135,7 +127,6 @@ fileprivate struct menu: View {
         .onAppear{
             viewModel.isFavorite = [movies]
             Uploadfavorite().printAllFavorites()
-//            DataController().printAllFavorites(context: managedObjectContext)
         }
     }
 }

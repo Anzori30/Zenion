@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-
-
 struct UserView: View {
     @StateObject var viewModel = UserViewModel()
+    @Environment(\.openURL) var openURL
     var body: some View {
         NavigationView {
             ZStack {
@@ -24,12 +23,14 @@ struct UserView: View {
                     Spacer()
                     UserSclorLIstView(info:
                                         [
-                                            UserPage(destination: AnyView(ProfilePageView(imageLink: viewModel.imageUrl, name: viewModel.userName, email: viewModel.userEmail)), name: "Profile"),
-                                            UserPage(destination: AnyView(FavoriteView()), name: "Subscription"),
-                                            UserPage(destination: AnyView(FavoriteView()), name: "Setting"),
-                                            UserPage(destination: AnyView(FavoriteView()), name: "Downloads"),
-                                            UserPage(destination: AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History")), name: "History"),
-                                            UserPage(destination: AnyView(FavoriteView()), name: "Support"),
+                                            UserPage(destination: AnyView(ProfilePageView(imageLink: viewModel.imageUrl, name: viewModel.userName, email: viewModel.userEmail)), name: "Profile", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(FavoriteView()), name: "Subscription", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(FavoriteView()), name: "Setting", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History")), name: "History", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(FavoriteView()), name: "Support", navigationDisabled: true, action: {
+                                              
+                                                openURL(URL(string: "https://www.apple.com")!)
+                                            })
                                         ])
                     Spacer()
                     Button(action: {
@@ -66,13 +67,6 @@ struct UserView: View {
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-
-
-
-
-
-
 struct userView_Previews: PreviewProvider {
     static var previews: some View {
         UserView()

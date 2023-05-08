@@ -30,31 +30,24 @@ class CustomListViewViewModel: ObservableObject {
             if let loadedFilter = try? decoder.decode(filterMovies.self, from: savedFilter) {
                 ishide = true
              filtermovies = []
-
                 for movie in movies {
                     // type all
                     if loadedFilter.type == 0{
                         genreFilter(movie: movie, loadedFilter: loadedFilter)
                     }
-                    
                     //type movie
                     else if loadedFilter.type == 1{
                         if movie.video.count <= 1 {
                             genreFilter(movie: movie, loadedFilter: loadedFilter)
                         }
                     }
-                    
                     //type tv show
                     else{
                         if movie.video.count > 1{
                             genreFilter(movie: movie, loadedFilter: loadedFilter)
                         }
                     }
-                    
-                    
-                    
                 }
-                
             }
         }
     }
@@ -67,7 +60,6 @@ class CustomListViewViewModel: ObservableObject {
                 historyMovies.append(movie)
             }
         }
-        
     }
     func genreFilter(movie:movie,loadedFilter:filterMovies){
         // genre
@@ -97,13 +89,8 @@ class CustomListViewViewModel: ObservableObject {
                       lastFilter(movie: movie, loadedFilter: loadedFilter)
                 }
               }
-   
         }
     }
-
-
-
-
     func lastFilter(movie:movie,loadedFilter:filterMovies){
         //rating
             if movie.star >= loadedFilter.minRating && movie.star <= loadedFilter.maxRating{
@@ -119,21 +106,13 @@ class CustomListViewViewModel: ObservableObject {
                }
           }
      }
-    
     func hideViewingFilter(movie:movie,loadedFilter:filterMovies){
-    
- 
         for historyMovie in historyMovies {
                 if movie.name != historyMovie.name{
                     filtermovies.append(movie)
-                }
-             }
-            
-          
-        
+            }
+        }
     }
-    
-    
 }
 
 

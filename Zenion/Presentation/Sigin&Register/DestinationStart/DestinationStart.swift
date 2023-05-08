@@ -23,7 +23,6 @@ struct DestinationStart: View{
                         .foregroundColor(.white)
                     Spacer()
                     VStack {
-                       
                         CustomRegisterButton(imageName:"Ios-icon", text: "Continue with Apple", color: .clear, imageWidth: 20, imageHeight: 20,destination: SignInWithPasswordView(),navigate: false){
                             viewModel.appleAuth()
                         }
@@ -57,13 +56,11 @@ struct DestinationStart: View{
         .navigationViewStyle(.stack)
     }
 }
-
 struct DestinationStartView_Previews: PreviewProvider {
     static var previews: some View {
         DestinationStart()
     }
 }
-
 struct CreatAccount: View {
     var body: some View {
         HStack {

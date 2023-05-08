@@ -61,8 +61,7 @@ fileprivate struct List: View {
             ForEach(movies, id: \.self) { movie in
                         NavigationLink(destination: DetalPageView(movies: movie) ){
                         HStack {
-                            KFImage(URL(string: movie.photo))
-                                .resizable()
+                            ShimerAnimation(url: movie.photo)
                                 .frame(width: CGFloat(width / 2), height: CGFloat(height))
                                 .cornerRadius(30)
                             VStack(alignment: .leading, spacing: 10) {

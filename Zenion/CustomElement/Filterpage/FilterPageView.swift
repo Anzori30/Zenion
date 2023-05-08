@@ -92,7 +92,6 @@ struct ProgressView: View {
                       }
                       .listRowBackground(Color("Gray"))
                       .pickerStyle(.navigationLink)
-                
                     Button {
                         withAnimation(.easeInOut(duration: 0.2)){
                             yearSliderBool.toggle()

@@ -20,7 +20,6 @@ struct ProfilePageView: View {
     @State private var alerttext = "Error"
     @State var showDeleteAlert = false
     var body: some View {
-        
         ZStack{
             Color("light-brown")
                 .ignoresSafeArea()

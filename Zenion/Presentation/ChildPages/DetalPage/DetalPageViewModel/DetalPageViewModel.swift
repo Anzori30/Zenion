@@ -8,7 +8,7 @@
 import SwiftUI
 
 class DetalPageViewModel: ObservableObject {
-    
+    private let shareBaseURL = "https://example.com/movie/"
     @Published var bookmark = "bookmark"
     var isFavorite = [movie]()
     
@@ -23,6 +23,14 @@ class DetalPageViewModel: ObservableObject {
             } else {
                 bookmark = "bookmark"
             }
+        }
+    }
+    func shareItem(movie:movie) {
+        let encodedMovieName = movie.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let urlString = shareBaseURL + encodedMovieName
+        if let url = URL(string: urlString) {
+            let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
     }
 }
