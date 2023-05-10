@@ -13,7 +13,7 @@ class searchViewModel: ObservableObject {
     @Published var ActivityIndicator = true
 
     init() {
-        FirebaseDatabaseInfo().startHTTP()
+        ImportMovies().startHTTP()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
     }
     @objc func handleMovieNotification(_ notification: Notification) {

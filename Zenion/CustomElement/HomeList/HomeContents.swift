@@ -21,7 +21,7 @@ struct HomeContents: View {
                         .foregroundColor(.white)
                         .padding([.leading],20)
                     Spacer()
-                    NavigationLink(destination: AllMovieView(movies: movies, title: headerText)){
+                    NavigationLink(destination: AllMovieView(movies: movies, title: headerText, seeAll: true)){
                         Text("see More")
                             .padding([.trailing],20)
                             .font(.system(size: 14, weight: .bold ))

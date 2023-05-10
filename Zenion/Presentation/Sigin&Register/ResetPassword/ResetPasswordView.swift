@@ -38,7 +38,8 @@ struct ResetPasswordView: View {
                         .padding([.leading, .trailing], 24)
                    Divider()
                     CustomButton(text: "Sign in", color: .purple, Width: 300, Height: 50, action: {
-                        viewModel.signIn(withEmail: email)
+                        viewModel.signIn(withEmail: email){ info in
+                        }
                     })
                     .alert(viewModel.info, isPresented: $viewModel.alert) {
                         Button("OK", role: .cancel) {

@@ -13,20 +13,20 @@ class ResetPasswordModelView: ObservableObject {
     @Published var alert = false
     @Published var info = ""
     @Published var activityIndicator = Bool()
-    func signIn(withEmail email: String) {
+    func signIn(withEmail email: String, completion: @escaping (String) -> Void) {
         self.activityIndicator = true
         let auth = Auth.auth()
         auth.sendPasswordReset(withEmail: email) { error in
-            if let error = error{
+            if let error = error {
                 self.info = "\(error.localizedDescription)"
                 self.activityIndicator = false
                 self.alert = true
-            }
-            else{
+            } else {
                 self.info = "Recovery link sent successfully"
                 self.activityIndicator = false
                 self.alert = true
             }
+            completion(self.info)
         }
     }
 }

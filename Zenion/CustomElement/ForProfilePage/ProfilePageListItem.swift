@@ -15,6 +15,7 @@ struct ProfilePageListItem: View {
     var isturnDown:Bool
     var destination:AnyView
     var downText:String
+    var navigation:Bool
     let action: () -> Void
     @State private var buttonArrow = "chevron.right"
     @State private var seeMore = false
@@ -22,7 +23,7 @@ struct ProfilePageListItem: View {
                Button {
                    if isturnDown{
                        withAnimation(.easeInOut(duration: 0.2)){
-                           seeMore.toggle()
+                                seeMore.toggle()
                        }
                        if seeMore{
                            buttonArrow = "chevron.up"
@@ -31,7 +32,9 @@ struct ProfilePageListItem: View {
                            buttonArrow = "chevron.right"
                        }
                    }
-                    action()
+                   if !isturnDown{
+                       action()
+                   }
                         } label: {
                             VStack{
                                 HStack{
@@ -58,18 +61,21 @@ struct ProfilePageListItem: View {
                         .listRowSeparatorTint(Color("light-brown"))
                     .listRowBackground(Color("Gray"))
                    .frame(height: CGFloat(height))
-        
             if seeMore{
-            NavigationLink(destination: destination){
                 VStack{
+                    NavigationLink(destination: destination){
                     Text(downText)
-                    .font(.system(size: 18, weight: .bold, design: .rounded))}
-                   .foregroundColor(.white)
+                    .font(.system(size: 18, weight: .bold, design: .rounded))
+                }
+                  .foregroundColor(.white)
+                 .disabled(navigation)
+            }
+            .onTapGesture {
+                action()
             }
             .listRowBackground(Color("Gray"))
             .frame(height: 40)
         }
-        
     }
 }
 

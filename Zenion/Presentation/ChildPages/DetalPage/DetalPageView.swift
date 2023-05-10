@@ -106,12 +106,12 @@ fileprivate struct menu: View {
                 Icon(imageName: viewModel.bookmark, spacer: true, height: 25, action: {
                     if  viewModel.bookmark == "bookmark" {
                         viewModel.bookmark = "bookmark.fill"
-                        Uploadfavorite().addFavorite(movieNames: [movies.name])
+                        UserFavorite().addFavorite(movieNames: [movies.name])
                     } else {
                         viewModel.bookmark = "bookmark"
-                        Uploadfavorite().removeFavorites(movieNames: [movies.name])
+                        UserFavorite().removeFavorites(movieNames: [movies.name])
                     }
-                    Uploadfavorite().printAllFavorites()
+                    UserFavorite().printAllFavorites()
                 })
                 Icon(imageName: "arrowshape.turn.up.right.fill" , spacer: false, height: 20, action: {
                     viewModel.shareItem(movie: movies)
@@ -126,7 +126,7 @@ fileprivate struct menu: View {
         .padding([.leading,.trailing],20)
         .onAppear{
             viewModel.isFavorite = [movies]
-            Uploadfavorite().printAllFavorites()
+            UserFavorite().printAllFavorites()
         }
     }
 }

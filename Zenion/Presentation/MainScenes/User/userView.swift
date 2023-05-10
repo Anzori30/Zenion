@@ -24,9 +24,9 @@ struct UserView: View {
                     UserSclorLIstView(info:
                                         [
                                             UserPage(destination: AnyView(ProfilePageView(imageLink: viewModel.imageUrl, name: viewModel.userName, email: viewModel.userEmail)), name: "Profile", navigationDisabled: false, action: {}),
-                                            UserPage(destination:AnyView(FavoriteView()), name: "Subscription", navigationDisabled: false, action: {}),
-                                            UserPage(destination:AnyView(FavoriteView()), name: "Setting", navigationDisabled: false, action: {}),
-                                            UserPage(destination:AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History")), name: "History", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(FavoriteView()), name: "Subscription", navigationDisabled: true, action: {}),
+                                            UserPage(destination:AnyView(SettingPageView()), name: "Setting", navigationDisabled: false, action: {}),
+                                            UserPage(destination:AnyView(AllMovieView(movies: viewModel.historyMovies, title: "History", seeAll: false)), name: "History", navigationDisabled: false, action: {}),
                                             UserPage(destination:AnyView(FavoriteView()), name: "Support", navigationDisabled: true, action: {
                                               
                                                 openURL(URL(string: "https://www.apple.com")!)
@@ -62,6 +62,7 @@ struct UserView: View {
                 })
             .onAppear{
                 viewModel.takeLink()
+                viewModel.takeHistory()
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

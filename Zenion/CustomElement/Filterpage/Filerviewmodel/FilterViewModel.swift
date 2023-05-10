@@ -14,7 +14,7 @@ class FilterViewModel: ObservableObject {
    @Published  var country = [String]()
     init() {
         startFilter()
-        FirebaseDatabaseInfo().startHTTP()
+        ImportMovies().startHTTP()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
     }
     @objc func handleMovieNotification(_ notification: Notification) {

@@ -11,24 +11,31 @@ class HomeModelView: ObservableObject {
     var trailer = [movie]()
     var topMovie = [movie]()
     var banerMovies = [movie]()
+    var hideView = Bool()
     @Published  var historyMovies = [movie]()
     @Published var showMovies = false
     @Published var isTake = Bool()
     @Published var ActivityIndicator = true
+    private let defaults = UserDefaults.standard
 //    @Published var movieNames = [String]()
     init() {
-        Uploadfavorite().printAllFavorites()
+        UserFavorite().printAllFavorites()
        takeMovie()
+        hidenViewing()
         NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
     }
     func takeMovie(){
-        FirebaseDatabaseInfo().startHTTP()
+        ImportMovies().startHTTP()
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
+    }
+    func hidenViewing(){
+        let isUserLogginedIn = UserDefaults.standard.bool(forKey: "hidenViewing")
+        hideView = isUserLogginedIn
     }
     // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
-            HistoryUpload().printAllHistory()
+            UserHistory().printAllHistory()
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false

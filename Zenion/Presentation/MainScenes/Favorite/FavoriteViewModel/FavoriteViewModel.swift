@@ -15,7 +15,7 @@ class FavoriteViewModel: ObservableObject {
        start()
     }
     func start(){
-        Uploadfavorite().printAllFavorites()
+        UserFavorite().printAllFavorites()
         NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name: Notification.Name("MovieNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name: Notification.Name("Favorite"), object: nil)
     }

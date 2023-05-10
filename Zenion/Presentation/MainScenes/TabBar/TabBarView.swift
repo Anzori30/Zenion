@@ -22,7 +22,7 @@ struct TabBarView: View {
                         Image(systemName: "magnifyingglass")
                     }
                 NavigationView{
-                    AllMovieView(movies: [], title: "All")
+                    AllMovieView(movies: [], title: "All", seeAll: true)
                 }  .navigationViewStyle(StackNavigationViewStyle())
                 .tabItem {
                             Image(systemName: "rectangle.grid.2x2")

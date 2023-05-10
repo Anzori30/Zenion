@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
 
-class FirebaseDatabaseInfo {
+class ImportMovies {
     var numb = 0
     var movies = [movie]()
     init(){

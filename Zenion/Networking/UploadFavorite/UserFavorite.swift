@@ -7,7 +7,7 @@
 import Firebase
 import FirebaseDatabase
 import FirebaseFirestore
-class Uploadfavorite: ObservableObject {
+class UserFavorite: ObservableObject {
     var movieNames = [String]()
     let db = Firestore.firestore()
     func addFavorite(movieNames: [String]) {

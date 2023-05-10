@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestore
 
-class HistoryUpload: ObservableObject {
+class UserHistory: ObservableObject {
     var History = [SaveHistory]()
     let db = Firestore.firestore()
     func saveHistoryToFirestore(history: SaveHistory) {
@@ -67,5 +67,21 @@ class HistoryUpload: ObservableObject {
             }
         }
     }
+    func clearHistory() {
+           guard let uid = Auth.auth().currentUser?.uid else {
+               print("User is not authenticated")
+               return
+           }
+           db.collection("users").document(uid).collection("History").getDocuments { (querySnapshot, error) in
+               if let error = error {
+                   print("Error fetching history: \(error)")
+               } else {
+                   for document in querySnapshot!.documents {
+                       document.reference.delete()
+                   }
+                   self.printAllHistory()
+               }
+           }
+       }
 }
 
