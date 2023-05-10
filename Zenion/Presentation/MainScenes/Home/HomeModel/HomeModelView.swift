@@ -37,7 +37,7 @@ class HomeModelView: ObservableObject {
     // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
-            UserHistory().printAllHistory()
+           
             Homemovies = movies
             showMovies = true
             ActivityIndicator = false
