@@ -43,9 +43,10 @@ struct HomeView: View {
                }
            })
         .onAppear{
+           
             viewModel.hidenViewing()
-            viewModel.takeMovie()
-            UserFavorite().printAllFavorites()
+          
+//            UserFavorite().printAllFavorites()
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

@@ -17,10 +17,12 @@ struct AllMovieView: View {
                 Color("Dark")
                     .ignoresSafeArea()
                 if movies.isEmpty && seeAll{
-                    CustomListView(headerText: "All", movies: viewModel.Movie , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    CustomListView(headerText: "All", movies: viewModel.Movie, historyMovies: viewModel.historyMovies , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
                 }
                 else{
-                    CustomListView(headerText: title, movies: movies , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    if viewModel.reset{
+                        CustomListView(headerText: title, movies: movies, historyMovies: viewModel.historyMovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    }
                 }
             }
             //zs end
@@ -33,7 +35,7 @@ struct AllMovieView: View {
                 }
             })
             .onAppear{
-                UserHistory().printAllHistory()
+                viewModel.history()
             }
         
     }

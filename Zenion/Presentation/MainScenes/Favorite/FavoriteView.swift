@@ -14,7 +14,7 @@ struct FavoriteView: View {
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-              CustomListView(headerText: "Favorite", movies:viewModel.isFavorite, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                CustomListView(headerText: "Favorite", movies:viewModel.isFavorite, historyMovies: viewModel.historyMovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
             }
         }
         .onAppear{

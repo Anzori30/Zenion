@@ -25,8 +25,15 @@ class UserViewModel:ObservableObject{
         NotificationCenter.default.addObserver(self, selector: #selector(handleMovieNotification(_:)), name:Notification.Name("MovieNotification"), object: nil)
     }
     func takeHistory(){
-        UserHistory().printAllHistory()
-        NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
+        UserHistory().printAllHistory(completion: { history in
+            guard !history.isEmpty else { return }
+            self.historyMovies = []
+            for savedHistory in history {
+                if let movie = self.Movies.first(where: { $0.name == savedHistory.MovieName }) {
+                    self.historyMovies.append(movie)
+                }
+            }
+        })
     }
     func takeLink(){
         restart = true
@@ -49,7 +56,7 @@ class UserViewModel:ObservableObject{
     }    // all movies
     @objc func handleMovieNotification(_ notification: Notification) {
         if let movies = notification.object as? [movie] {
-            UserHistory().printAllHistory()
+            UserHistory().printAllHistory(completion: {_ in })
             Movies = movies
         }
     }
