@@ -26,8 +26,8 @@ struct ProgressView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel = FilterViewModel()
     private let titles = ["All", "Movies", "TV Series"]
-    private var genreValue = ""
-    private var countryValue = ""
+    private var genreValue = "All"
+    private var countryValue = "All"
     let defaults = UserDefaults.standard
     let encoder = JSONEncoder()
     @State private var callIndex = 0

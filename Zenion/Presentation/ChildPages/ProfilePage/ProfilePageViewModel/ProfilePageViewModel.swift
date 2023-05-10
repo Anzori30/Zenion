@@ -13,6 +13,7 @@ class ProfilePageViewModel: ObservableObject {
     @Published var showErrorAlert = Bool()
      @Published var errorDescription = String()
      let defaults = UserDefaults.standard
+     let userEmail = UserDefaults.standard.string(forKey: "Email") ?? "Unknown"
      var valueToSave = true
     init() {
         takeLInk()
@@ -59,6 +60,13 @@ class ProfilePageViewModel: ObservableObject {
                 self.indicator = true
                 
             }
+        }
+    }
+    
+    func resetPassword(){
+        ResetPasswordModelView().signIn(withEmail: userEmail){ info in
+            self.errorDescription = info
+            self.showErrorAlert = true
         }
     }
 }

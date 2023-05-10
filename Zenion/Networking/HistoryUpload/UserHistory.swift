@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestore
 
-class HistoryUpload: ObservableObject {
+class UserHistory: ObservableObject {
     var History = [SaveHistory]()
     let db = Firestore.firestore()
     func saveHistoryToFirestore(history: SaveHistory) {
@@ -29,7 +29,7 @@ class HistoryUpload: ObservableObject {
             }
         }
     }
-    func printAllHistory() {
+    func printAllHistory(completion: @escaping ([SaveHistory]) -> Void) {
         self.History = []
         guard let uid = Auth.auth().currentUser?.uid else {
             print("User is not authenticated")
@@ -46,8 +46,7 @@ class HistoryUpload: ObservableObject {
                     let history = SaveHistory(MovieName: movieName, fullTime: fullTime, endTime: endTime)
                     self.History.append(history)
                 }
-                let notification = Notification(name: Notification.Name("History"), object: self.History, userInfo: nil)
-                NotificationCenter.default.post(notification)
+                completion(self.History)
             }
         }
     }
@@ -62,10 +61,26 @@ class HistoryUpload: ObservableObject {
                 if let error = error {
                     print("Error removing favorite: \(error)")
                 } else {
-                    self.printAllHistory()
+                    self.printAllHistory(completion: {_ in })
                 }
             }
         }
     }
+    func clearHistory() {
+           guard let uid = Auth.auth().currentUser?.uid else {
+               print("User is not authenticated")
+               return
+           }
+           db.collection("users").document(uid).collection("History").getDocuments { (querySnapshot, error) in
+               if let error = error {
+                   print("Error fetching history: \(error)")
+               } else {
+                   for document in querySnapshot!.documents {
+                       document.reference.delete()
+                   }
+                   self.printAllHistory(completion: {_ in })
+               }
+           }
+       }
 }
 

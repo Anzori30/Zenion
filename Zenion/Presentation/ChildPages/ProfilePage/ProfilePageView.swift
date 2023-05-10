@@ -19,6 +19,8 @@ struct ProfilePageView: View {
     @State private var showingAlert = false
     @State private var alerttext = "Error"
     @State var showDeleteAlert = false
+    @State private var showAlert = false
+    @State var resetPassword = Bool()
     var body: some View {
         ZStack{
             Color("light-brown")
@@ -36,7 +38,7 @@ struct ProfilePageView: View {
             VStack{
                 Divider()
                 List{
-                    ProfilePageListItem(height: 100, mainText: "Edit profile photo", secundText: "", imageLink: viewModel.imageUrl, isturnDown: false, destination:AnyView(EmptyView()), downText: "") {
+                    ProfilePageListItem(height: 100, mainText: "Edit profile photo", secundText: "", imageLink: viewModel.imageUrl, isturnDown: false, destination:AnyView(EmptyView()), downText: "", navigation: true) {
                         showingPicker = true
                     }
                     .sheet(isPresented: $showingPicker, onDismiss: loadImage){
@@ -50,16 +52,18 @@ struct ProfilePageView: View {
                 .frame(height: 170)
                 ScrollView{
                     List{
-                        ProfilePageListItem(height: 38, mainText: "Name", secundText: name, imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "") {
+                        ProfilePageListItem(height: 38, mainText: "Name", secundText: name, imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "", navigation: true) {
                             alerttext = "The name cannot be changed"
                             showingAlert = true
                         }
-                        ProfilePageListItem(height: 38, mainText: "E-mail", secundText: email, imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "") {
+                        ProfilePageListItem(height: 38, mainText: "E-mail", secundText: email, imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "", navigation: true) {
                             alerttext = "The email cannot be changed"
                             showingAlert = true
                         }
-                        ProfilePageListItem(height: 38, mainText: "Password", secundText: "", imageLink: "", isturnDown: true, destination: AnyView(ResetPasswordView()), downText: "Reset Password") { }
-                        ProfilePageListItem(height: 38, mainText: "Payment details", secundText: "", imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "") { }
+                        ProfilePageListItem(height: 38, mainText: "Password", secundText: "", imageLink: "", isturnDown: true, destination: AnyView(ResetPasswordView()), downText: "Reset Password", navigation: true) {
+                            showAlert = true
+                        }
+                        ProfilePageListItem(height: 38, mainText: "Payment details", secundText: "", imageLink: "", isturnDown: false, destination: AnyView(EmptyView()), downText: "", navigation: true) { }
                     }
                     .foregroundColor(.blue)
                     .background(.clear)
@@ -74,8 +78,14 @@ struct ProfilePageView: View {
                     }
                 }
                 .alert(isPresented: $viewModel.showErrorAlert) {
-                    Alert(title: Text("Error"), message: Text(viewModel.errorDescription), dismissButton: .default(Text("OK")))
+                    Alert(title: Text(""), message: Text(viewModel.errorDescription), dismissButton: .default(Text("OK")))
                 }
+            }
+            .alert("Are you sure?", isPresented: $showAlert) {
+                      Button("NO", role: .cancel) {}
+                Button("YES") {viewModel.resetPassword()}
+            } message: {
+                    Text("Do you really want to change your password?")
             }
             .padding([.bottom])
             .alert(alerttext, isPresented: $showingAlert) {

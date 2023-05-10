@@ -10,16 +10,19 @@ import SwiftUI
 struct AllMovieView: View {
     var movies : [movie]
     var title:String
+    var seeAll:Bool
     @StateObject var viewModel = AllModelView()
     var body: some View {
             ZStack{
                 Color("Dark")
                     .ignoresSafeArea()
-                if movies.isEmpty{
-                    CustomListView(headerText: "All", movies: viewModel.Movie , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                if movies.isEmpty && seeAll{
+                    CustomListView(headerText: "All", movies: viewModel.Movie, historyMovies: viewModel.historyMovies , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
                 }
                 else{
-                    CustomListView(headerText: title, movies: movies , width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    if viewModel.reset{
+                        CustomListView(headerText: title, movies: movies, historyMovies: viewModel.historyMovies, width: Int(UIScreen.main.bounds.width), height: Int(UIScreen.main.bounds.height) / 3)
+                    }
                 }
             }
             //zs end
@@ -32,7 +35,7 @@ struct AllMovieView: View {
                 }
             })
             .onAppear{
-                HistoryUpload().printAllHistory()
+                viewModel.history()
             }
         
     }
@@ -41,6 +44,6 @@ struct AllMovieView: View {
 
 struct AllMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        AllMovieView(movies: [], title:"All")
+        AllMovieView(movies: [], title:"All", seeAll: true)
     }
 }

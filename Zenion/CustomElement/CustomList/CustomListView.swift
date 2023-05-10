@@ -11,11 +11,12 @@ import Kingfisher
 struct CustomListView: View {
     let headerText: String
     var movies: [movie]
+    var historyMovies: [SaveHistory]
     let width: Int
     let height: Int
      @State  var ishide = Bool()
     var body: some View {
-        @ObservedObject var viewModel = CustomListViewViewModel(Movie: movies)
+        @ObservedObject var viewModel = CustomListViewViewModel(Movie: movies, History: historyMovies)
         VStack{
             HStack {
                 Text(headerText)
@@ -46,7 +47,6 @@ struct CustomListView: View {
         }
         .onAppear{
             ishide = false
-            viewModel.history()
             ishide = true
         }
         

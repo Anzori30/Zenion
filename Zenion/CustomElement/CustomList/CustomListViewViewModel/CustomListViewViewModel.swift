@@ -11,56 +11,43 @@ class CustomListViewViewModel: ObservableObject {
     @Published var movies = [movie]()
     @Published  var ishide = Bool()
     let defaults = UserDefaults.standard
-    var historyMovies = [movie]()
-    init(Movie:[movie]){
+    var historyMovies = [SaveHistory]()
+    init(Movie:[movie],History:[SaveHistory]){
         self.movies = Movie
+        self.historyMovies = History
         if filtermovies.isEmpty{
-            filtermovies = Movie
+        filtermovies = Movie
         }
-        history()
+        self.startFilter()
     }
-    func history(){
-        NotificationCenter.default.addObserver(self, selector: #selector(MovieNotification(_:)), name:Notification.Name("History"), object: nil)
-        startFilter()
-    }
+    
     func startFilter(){
-        ishide = false
         if let savedFilter = defaults.object(forKey: "filterMovies") as? Data {
             let decoder = JSONDecoder()
             if let loadedFilter = try? decoder.decode(filterMovies.self, from: savedFilter) {
-                ishide = true
-             filtermovies = []
+                
                 for movie in movies {
-                    // type all
-                    if loadedFilter.type == 0{
-                        genreFilter(movie: movie, loadedFilter: loadedFilter)
-                    }
-                    //type movie
-                    else if loadedFilter.type == 1{
-                        if movie.video.count <= 1 {
-                            genreFilter(movie: movie, loadedFilter: loadedFilter)
+                      // type all
+                        if loadedFilter.type == 0{
+                          genreFilter(movie: movie, loadedFilter: loadedFilter)
                         }
-                    }
-                    //type tv show
-                    else{
-                        if movie.video.count > 1{
+                        //type movie
+                        else if loadedFilter.type == 1{
+                          if movie.video.count <= 1 {
                             genreFilter(movie: movie, loadedFilter: loadedFilter)
-                        }
-                    }
+                            }
+                         }
+                        //type tv show
+                        else{
+                          if movie.video.count > 1{
+                            genreFilter(movie: movie, loadedFilter: loadedFilter)
+                           }
+                      }
                 }
             }
         }
     }
-    @objc func MovieNotification(_ notification: Notification) {
-        guard let history = notification.object as? [SaveHistory], !history.isEmpty else { return }
-
-        historyMovies = []
-        for savedHistory in history {
-            if let movie = movies.first(where: { $0.name == savedHistory.MovieName }) {
-                historyMovies.append(movie)
-            }
-        }
-    }
+  
     func genreFilter(movie:movie,loadedFilter:filterMovies){
         // genre
         if loadedFilter.genre == "All"{
@@ -88,7 +75,7 @@ class CustomListViewViewModel: ObservableObject {
                   if movieCantry == loadedFilter.country{
                       lastFilter(movie: movie, loadedFilter: loadedFilter)
                 }
-              }
+            }
         }
     }
     func lastFilter(movie:movie,loadedFilter:filterMovies){
@@ -107,10 +94,8 @@ class CustomListViewViewModel: ObservableObject {
           }
      }
     func hideViewingFilter(movie:movie,loadedFilter:filterMovies){
-        for historyMovie in historyMovies {
-                if movie.name != historyMovie.name{
-                    filtermovies.append(movie)
-            }
+        if !historyMovies.contains(where: { $0.MovieName == movie.name }) {
+                filtermovies.append(movie)
         }
     }
 }

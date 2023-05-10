@@ -22,7 +22,7 @@ struct HomeView: View {
                         if viewModel.showMovies {
                             
                             HomeimageTableView(movies: viewModel.banerMovies, height:Int(width) )
-                            if !viewModel.historyMovies.isEmpty{
+                            if !viewModel.historyMovies.isEmpty && viewModel.hideView{
                               HomeContents(headerText: "Continue viewing", movies:viewModel.historyMovies,width: width / 2.0 ,height :height / 3.6 )
                             }
                             HomeContents(headerText: "All Movie", movies: viewModel.Homemovies,width: width / 2.5 ,height :height / 3.3 )
@@ -43,8 +43,10 @@ struct HomeView: View {
                }
            })
         .onAppear{
-            viewModel.takeMovie()
-            Uploadfavorite().printAllFavorites()
+           
+            viewModel.hidenViewing()
+          
+//            UserFavorite().printAllFavorites()
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

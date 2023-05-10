@@ -41,7 +41,6 @@ struct VideoPlayerView: View {
                     guard let player = player else {
                         return
                     }
-                    print("Current time: \(time.seconds)")
                     fullTime = time.seconds
                     if let currentItem = player.currentItem {
                         endTimes = currentItem.asset.duration.seconds
@@ -51,8 +50,8 @@ struct VideoPlayerView: View {
             }
             .onDisappear {
                 if endTimes != 0.0  && fullTime != 0.0 {
-                    HistoryUpload().removeHistory(movieNames: [movieName])
-                    HistoryUpload().saveHistoryToFirestore(history: SaveHistory(MovieName: movieName, fullTime: fullTime, endTime: endTimes - 900 ))
+                    UserHistory().removeHistory(movieNames: [movieName])
+                    UserHistory().saveHistoryToFirestore(history: SaveHistory(MovieName: movieName, fullTime: fullTime, endTime: endTimes - 900 ))
                 }
                 player.replaceCurrentItem(with: nil)
                 observers.removeAll()
