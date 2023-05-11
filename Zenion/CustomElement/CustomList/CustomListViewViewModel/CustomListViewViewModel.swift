@@ -25,7 +25,7 @@ class CustomListViewViewModel: ObservableObject {
         if let savedFilter = defaults.object(forKey: "filterMovies") as? Data {
             let decoder = JSONDecoder()
             if let loadedFilter = try? decoder.decode(filterMovies.self, from: savedFilter) {
-                
+                filtermovies = []
                 for movie in movies {
                       // type all
                         if loadedFilter.type == 0{

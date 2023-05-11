@@ -38,8 +38,8 @@ class FilterViewModel: ObservableObject {
         }
     }
     var type = Int()
-    var genres = String()
-    var countrys = String()
+    var genres = "All"
+    var countrys = "All"
     var minYear = Int()
     var maxYear = Int()
     var minRating = Double()

@@ -43,7 +43,7 @@ struct HomeView: View {
                }
            })
         .onAppear{
-           
+            viewModel.history()
             viewModel.hidenViewing()
           
 //            UserFavorite().printAllFavorites()
